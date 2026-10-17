@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- こうえんマップのアイコン。黒地に木とピン。iOS が角を丸くするので角丸は付けない -->
+  <rect width="512" height="512" fill="#0D0E10"/>
+  <!-- 木の葉（3つの円を重ねる） -->
+  <circle cx="206" cy="190" r="86" fill="#5FBE8A"/>
+  <circle cx="306" cy="190" r="86" fill="#5FBE8A"/>
+  <circle cx="256" cy="130" r="86" fill="#5FBE8A"/>
+  <!-- 幹 -->
+  <rect x="234" y="230" width="44" height="130" rx="8" fill="#E8935C"/>
+  <!-- 地面のライン -->
+  <rect x="120" y="392" width="272" height="20" rx="10" fill="#ECECED" opacity="0.9"/>
+</svg>

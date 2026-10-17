@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 1ページだけのサイトマップ。地図・リストは同じページ内で切り替わるだけなので URL は1本。 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+  <loc>https://nattom666.github.io/kansai-park-map/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>1.0</priority>
+</url>
+</urlset>

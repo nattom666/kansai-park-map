@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>関西こども公園ガイド｜駐車場のある公園132カ所</title>
+<meta name="description" content="駐車場があって子どもと遊べる、関西2府4県の公園132カ所をまとめた地図とリスト。都道府県・地域・駐車場の無料/有料で絞り込めます。">
+<link rel="canonical" href="https://nattom666.github.io/kansai-park-map/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="関西こども公園ガイド">
+<meta property="og:title" content="関西こども公園ガイド｜駐車場のある公園132カ所">
+<meta property="og:description" content="駐車場があって子どもと遊べる、関西2府4県の公園132カ所をまとめた地図とリスト。都道府県・地域・駐車場の無料/有料で絞り込めます。">
+<meta property="og:url" content="https://nattom666.github.io/kansai-park-map/">
+<meta property="og:image" content="https://nattom666.github.io/kansai-park-map/apple-touch-icon.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "関西こども公園ガイド",
+ "url": "https://nattom666.github.io/kansai-park-map/",
+ "description": "駐車場があって子どもと遊べる、関西2府4県の公園132カ所をまとめた地図とリスト。",
+ "inLanguage": "ja"
+}
+</script>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@500;600&display=swap');
+
+  :root{
+    --bg:#F4F4F3;
+    --surface:#FFFFFF;
+    --surface-2:#ECECEA;
+    --surface-3:#E1E1DE;
+    --ink:#18181A;
+    --ink-muted:#6B6D70;
+    --accent:#2E6B4A;
+    --accent-ink:#FFFFFF;
+    --accent-2:#B5541F;
+    --accent-2-soft:#F3DECF;
+    --water:#CBD9DD;
+    --line:#D8D8D5;
+    --shadow: 0 1px 2px rgba(20,20,20,.05), 0 6px 20px rgba(20,20,20,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0D0E10;
+      --surface:#191A1D;
+      --surface-2:#202124;
+      --surface-3:#2A2B2F;
+      --ink:#ECECED;
+      --ink-muted:#9A9CA2;
+      --accent:#5FBE8A;
+      --accent-ink:#0A1410;
+      --accent-2:#E8935C;
+      --accent-2-soft:#3A2A1E;
+      --water:#223038;
+      --line:#2D2F33;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 26px rgba(0,0,0,.45);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0D0E10;
+    --surface:#191A1D;
+    --surface-2:#202124;
+    --surface-3:#2A2B2F;
+    --ink:#ECECED;
+    --ink-muted:#9A9CA2;
+    --accent:#5FBE8A;
+    --accent-ink:#0A1410;
+    --accent-2:#E8935C;
+    --accent-2-soft:#3A2A1E;
+    --water:#223038;
+    --line:#2D2F33;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 26px rgba(0,0,0,.45);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
+    padding:0 20px;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding-block:40px 64px;}
+
+  header.page{margin-bottom:28px;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    color:var(--accent);
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  h1{
+    font-family:'Shippori Mincho B1', serif;
+    font-weight:800;
+    font-size:clamp(28px,4vw,40px);
+    line-height:1.3;
+    margin:6px 0 10px;
+    text-wrap:balance;
+  }
+  .lede{
+    font-size:15px;
+    color:var(--ink-muted);
+    line-height:1.8;
+    max-width:62ch;
+    margin:0 0 6px;
+  }
+  .note{
+    font-size:13px;
+    color:var(--ink-muted);
+    line-height:1.7;
+    max-width:66ch;
+    border-left:3px solid var(--accent-2);
+    padding-left:12px;
+    margin-top:16px;
+  }
+
+  nav.filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:0 0 12px;
+  }
+  nav.filters-region{margin:0 0 12px;}
+  nav.filters-region:empty{display:none; margin:0;}
+  nav.filters-region .chip{font-size:12.5px; padding:6px 12px; background:var(--surface-2);}
+  nav.filters-parking{margin:0 0 20px;}
+  nav.filters-parking .chip[aria-pressed="true"][data-parking="free"]{background:var(--accent); border-color:var(--accent);}
+  nav.filters-parking .chip[aria-pressed="true"][data-parking="paid"]{background:var(--accent-2); border-color:var(--accent-2); color:var(--accent-ink);}
+  .chip{
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-size:13px;
+    font-weight:700;
+    padding:7px 14px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--surface);
+    color:var(--ink);
+    cursor:pointer;
+    transition:background .15s, color .15s, border-color .15s;
+  }
+  .chip:hover{border-color:var(--accent);}
+  .chip[aria-pressed="true"]{
+    background:var(--accent);
+    color:var(--accent-ink);
+    border-color:var(--accent);
+  }
+  .chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  /* ---- map explorer ---- */
+  .explorer{
+    display:grid;
+    grid-template-columns:1fr 1.15fr;
+    gap:16px;
+    margin-bottom:16px;
+  }
+  .map-card{
+    position:relative;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .map-card svg{display:block;width:100%;height:auto;}
+  .map-legend{
+    position:absolute;
+    left:14px; bottom:14px;
+    display:flex;
+    gap:12px;
+    font-size:11.5px;
+    color:var(--ink-muted);
+    background:color-mix(in srgb, var(--surface) 88%, transparent);
+    padding:6px 10px;
+    border-radius:9px;
+    border:1px solid var(--line);
+  }
+  .map-legend span{display:inline-flex;align-items:center;gap:5px;}
+  .legend-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;}
+  .legend-dot.paid{background:var(--accent-2);}
+  .geo{fill:var(--surface-3); stroke:var(--line); stroke-width:1.4; stroke-linejoin:round; transition:fill .15s, opacity .15s;}
+  .geo.dim{opacity:.45;}
+  .lake{fill:var(--water); stroke:var(--line); stroke-width:1;}
+  .lake-label{
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-size:11px;
+    fill:var(--ink-muted);
+    text-anchor:middle;
+    pointer-events:none;
+  }
+  .city-dot{fill:var(--ink-muted);}
+  .city-label{
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-size:11px;
+    fill:var(--ink-muted);
+    pointer-events:none;
+  }
+  .pref-label{
+    font-family:'Shippori Mincho B1', serif;
+    font-weight:800;
+    font-size:13px;
+    fill:var(--ink-muted);
+    opacity:.5;
+    pointer-events:none;
+  }
+
+  .pin{cursor:pointer;}
+  .pin circle.base{fill:var(--accent); stroke:var(--surface); stroke-width:2;}
+  .pin.paid circle.base{fill:var(--accent-2);}
+  .pin text{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    font-weight:700;
+    fill:var(--accent-ink);
+    text-anchor:middle;
+    dominant-baseline:central;
+    pointer-events:none;
+  }
+  .pin.paid text{fill:var(--accent-ink);}
+  .pin .base{transition:r .12s, filter .12s;}
+  .pin:hover .base{filter:brightness(1.08);}
+  .pin.active circle.base{stroke-width:3;}
+
+  #pinLayer{transition:opacity .12s;}
+  .cluster{cursor:pointer;}
+  .cluster circle{fill:var(--ink); stroke:var(--surface); stroke-width:2; transition:filter .12s;}
+  .cluster:hover circle{filter:brightness(1.3);}
+  .cluster text{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    font-weight:700;
+    fill:var(--bg);
+    text-anchor:middle;
+    dominant-baseline:central;
+    pointer-events:none;
+  }
+  .map-reset{
+    position:absolute; top:12px; left:12px;
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-size:12px; font-weight:700;
+    padding:6px 11px; border-radius:8px;
+    background:var(--surface); border:1px solid var(--line); color:var(--ink);
+    cursor:pointer;
+    display:none;
+  }
+  .map-reset.show{display:inline-flex; align-items:center; gap:4px;}
+  .map-reset:hover{border-color:var(--accent);}
+
+  .list-panel{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    max-height:620px;
+    overflow-y:auto;
+    padding-right:4px;
+  }
+  .list-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:9px 10px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:var(--surface);
+    cursor:pointer;
+    text-align:left;
+    width:100%;
+    font-family:inherit;
+    color:var(--ink);
+  }
+  .list-row:hover{border-color:var(--accent);}
+  .list-row.active{
+    background:var(--surface-3);
+    border-color:var(--accent);
+  }
+  .list-row .n{
+    flex:none;
+    width:22px;height:22px;
+    border-radius:50%;
+    background:var(--accent);
+    color:var(--accent-ink);
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .list-row.paid .n{background:var(--accent-2);}
+  .list-row .meta{flex:1;min-width:0;}
+  .list-row .meta .nm{font-weight:700;font-size:13.5px;}
+  .list-row .meta .pf{font-size:11.5px;color:var(--ink-muted);}
+  .list-row .r{
+    flex:none;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--accent-2);
+  }
+  .list-row.dim{display:none;}
+
+  .preview{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+    margin-bottom:40px;
+    box-shadow:var(--shadow);
+  }
+  .preview .icon-box{flex:none;}
+  .preview .pbody{flex:1;min-width:0;}
+  .preview .pbody .top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .preview .pbody .top .nm{font-family:'Shippori Mincho B1', serif;font-weight:800;font-size:17px;}
+  .preview .pbody .addr{font-size:12.5px;color:var(--ink-muted);margin-top:2px;}
+  .preview .pbody .chips{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+  .preview a.jump{
+    flex:none;
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--accent-ink);
+    background:var(--accent);
+    padding:9px 14px;
+    border-radius:9px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .preview a.jump:hover{opacity:.85;}
+
+  @media (max-width:760px){
+    .explorer{grid-template-columns:1fr;}
+    .list-panel{max-height:260px;}
+    .preview{flex-direction:column;align-items:flex-start;}
+    .preview a.jump{width:100%;text-align:center;}
+  }
+
+  section.pref{margin-bottom:40px;}
+  .pref-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:14px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--line);
+  }
+  .pref-head .pref-name{
+    font-family:'Shippori Mincho B1', serif;
+    font-weight:800;
+    font-size:20px;
+  }
+  .pref-head .pref-count{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--ink-muted);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px,1fr));
+    gap:18px;
+  }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    scroll-margin-top:20px;
+  }
+  .card.flash{animation:flashring 1.1s ease-out 2;}
+  @keyframes flashring{
+    0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent), var(--shadow);}
+    60%{box-shadow:0 0 0 8px color-mix(in srgb, var(--accent) 0%, transparent), var(--shadow);}
+    100%{box-shadow:var(--shadow);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .card.flash{animation:none; outline:3px solid var(--accent); outline-offset:2px;}
+  }
+
+  .banner{
+    background:var(--surface-2);
+    padding:18px 18px 14px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .num-badge{
+    flex:none;
+    width:24px;height:24px;
+    border-radius:50%;
+    background:var(--accent);
+    color:var(--accent-ink);
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .icon-box{
+    flex:none;
+    width:52px;height:52px;
+    border-radius:10px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .icon-box svg{width:30px;height:30px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .banner-text .name{
+    font-family:'Shippori Mincho B1', serif;
+    font-weight:800;
+    font-size:18px;
+    line-height:1.35;
+  }
+  .banner-text .addr{
+    font-size:12.5px;
+    color:var(--ink-muted);
+    margin-top:3px;
+  }
+
+  .body{padding:14px 18px 18px;display:flex;flex-direction:column;gap:12px;flex:1;}
+
+  .badges{display:flex;gap:6px;flex-wrap:wrap;}
+  .badge{
+    font-size:12px;
+    font-weight:700;
+    padding:3px 9px;
+    border-radius:999px;
+  }
+  .badge.free{background:var(--accent);color:var(--accent-ink);}
+  .badge.paid{background:var(--accent-2-soft);color:var(--accent-2);}
+  .badge.neutral{background:var(--surface-2);color:var(--ink-muted);}
+
+  .stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 14px;
+    font-size:13px;
+    padding:10px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .stat .label{color:var(--ink-muted);font-size:11px;letter-spacing:.03em;}
+  .stat .value{
+    font-family:'JetBrains Mono', monospace;
+    font-variant-numeric:tabular-nums;
+    font-weight:600;
+    font-size:13px;
+    line-height:1.5;
+  }
+
+  .equip{font-size:13.5px;line-height:1.7;}
+  .equip b{color:var(--accent);}
+
+  blockquote.review{
+    margin:0;
+    font-size:13px;
+    line-height:1.7;
+    color:var(--ink-muted);
+    padding-left:10px;
+    border-left:2px solid var(--line);
+  }
+  .rating{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    color:var(--accent-2);
+  }
+
+  .card footer{margin-top:auto;padding-top:4px;}
+  .card footer a{
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid currentColor;
+  }
+  .card footer a:hover{opacity:.75;}
+
+  footer.page{
+    margin-top:48px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    font-size:12px;
+    color:var(--ink-muted);
+    line-height:1.8;
+  }
+
+  @media (max-width:420px){
+    .stats{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page">
+    <div class="eyebrow">Kansai · Free Kids Parks</div>
+    <h1>関西 無料こども公園ガイド</h1>
+    <p class="lede">駐車場がある関西2府4県の公園132カ所。都道府県チップを選ぶとその県内の地域チップ（北摂・泉州・播磨・淡路など）が現れ、さらに「駐車場: 無料/有料」チップと組み合わせて絞り込めます。地図のピンかリストから気になる公園を選ぶと、下に詳細が表示されます。</p>
+    <p class="note">※ 実際の写真はこのページには掲載していません（著作権の都合）。特徴を示すアイコンを付け、各詳細カード下部の「公式情報を見る」から本物の写真が見られるページへリンクしています。ほとんどの公園は入園無料ですが、一部「入園有料」の公園も含まれています（カード内のバッジでご確認ください）。料金・台数・休園日は変更されることがあるため、お出かけ前に公式サイトでの確認をおすすめします。</p>
+  </header>
+
+  <nav class="filters" id="filters" aria-label="都道府県で絞り込み"></nav>
+  <nav class="filters filters-region" id="regionFilters" aria-label="地域で絞り込み"></nav>
+  <nav class="filters filters-parking" id="parkingFilters" aria-label="駐車場で絞り込み"></nav>
+
+  <section class="explorer">
+    <div class="map-card">
+      <svg id="map" viewBox="0 0 538.7 680" role="img" aria-label="関西の公園位置図">
+        <g id="geoLayer"></g>
+        <g id="pinLayer"></g>
+      </svg>
+      <div class="map-legend">
+        <span><span class="legend-dot"></span>駐車場無料</span>
+        <span><span class="legend-dot paid"></span>駐車場有料</span>
+      </div>
+      <button class="map-reset" id="mapReset" type="button">← 全体を見る</button>
+    </div>
+    <div class="list-panel" id="listPanel"></div>
+  </section>
+
+  <div class="preview" id="preview"></div>
+
+  <main id="sections"></main>
+
+  <footer class="page">
+    情報は2026年10月時点の各公園公式サイト・観光サイトの情報をもとに作成。料金・台数・休園日は現地および公式サイトで最新情報をご確認ください。地図は実際の行政界データ（出典: 地球地図日本／国土地理院）を簡略化して描いた略地図で、小さな離島などは省略しています。正確な道順はカード内の住所でGoogleマップ等をご確認ください。
+  </footer>
+</div>
+
+<script>
+const ICONS = {
+  slide: `<path d="M5 26 Q10 10 18 10 Q10 10 10 18 L16 24 M16 24 L24 24 M24 24 L24 18 Q24 8 10 8" />
+          <circle cx="8" cy="27" r="1.4" fill="currentColor" stroke="none"/>`,
+  rollerSlide: `<path d="M4 24 C 8 24 8 18 12 18 C 16 18 16 24 20 24 C 24 24 24 18 28 18" />
+          <path d="M6 10 L20 10 L26 24" />`,
+  net: `<rect x="6" y="6" width="20" height="20" rx="2"/>
+        <path d="M6 12 H26 M6 18 H26 M6 24 H26 M12 6 V26 M18 6 V26"/>`,
+  pyramid: `<path d="M16 4 L28 26 H4 Z"/>
+            <path d="M16 4 L16 26 M10 15 H22 M7 20.5 H25"/>`,
+  bridge: `<path d="M4 20 Q16 6 28 20"/>
+           <path d="M8 20 V26 M16 15 V26 M24 20 V26"/>
+           <path d="M2 26 H30"/>`,
+  water: `<path d="M16 4 C 12 12 8 14 8 19 a8 8 0 0 0 16 0 c 0-5-4-7-8-15Z"/>`,
+  zip: `<path d="M3 8 L29 24"/>
+        <path d="M3 8 L3 12 M29 24 L29 28"/>
+        <circle cx="10" cy="12.2" r="1.6" fill="currentColor" stroke="none"/>`,
+  mound: `<path d="M4 22 Q16 6 28 22 Z"/>
+          <path d="M4 22 H28"/>`,
+  flower: `<circle cx="16" cy="12" r="3.4"/>
+           <circle cx="11" cy="8" r="2.6"/><circle cx="21" cy="8" r="2.6"/>
+           <circle cx="9" cy="14.5" r="2.6"/><circle cx="23" cy="14.5" r="2.6"/>
+           <path d="M16 15.4 V27"/>`,
+  freefall: `<path d="M5 7 H19"/>
+             <path d="M5 7 V13 Q5 24 27 26"/>
+             <circle cx="5" cy="13" r="1.5" fill="currentColor" stroke="none"/>`
+};
+
+/* x,y are an equirectangular projection (lon×cos(mean lat), lat) of each park's real coordinates
+   into the 538.7×680 map viewBox, using the same projection as the prefecture outlines below. */
+const DATA = [
+  { id:1, pref:"大阪府", name:"服部緑地", addr:"大阪府豊中市服部緑地1-1", icon:"rollerSlide", x:298.7, y:295.3,
+    parking:{free:false, text:"909台・有料（1h390円）"}, area:"126.3 ha",
+    hours:"公園は入園自由／植物園など10:00–17:00", closed:"公園は無休／植物園は火曜・年末年始",
+    equip:"<b>こどもの楽園</b>に長さ20mのローラー滑り台を含む大型複合遊具。「いなり山児童遊戯場」も。",
+    review:"じゃらん 4.1（670件）。「日本の都市公園100選」に選出、甲子園球場の約33倍の広さ。",
+    rating:"★4.1", link:"https://hattori-ryokuchi.com/" },
+  { id:2, pref:"大阪府", name:"大泉緑地", addr:"大阪府堺市北区金岡町128", icon:"net", x:309.5, y:348.5,
+    parking:{free:false, text:"787台（常設）＋臨時・有料"}, area:"101.5 ha（現況）",
+    hours:"入園自由（常時）", closed:"無休（管理事務所は年末年始休）",
+    equip:"大型遊具エリアが3カ所：<b>わんぱくランド／海遊ランド／冒険ランド</b>。",
+    review:"じゃらん 4.2（338件）。四季の花木と遊具の両方で人気。",
+    rating:"★4.2", link:"https://www.osaka-park.or.jp/nanbu/oizumi/main.html" },
+  { id:3, pref:"大阪府", name:"花博記念公園 鶴見緑地", addr:"大阪府大阪市鶴見区緑地公園2-163", icon:"pyramid", x:314.5, y:314.6,
+    parking:{free:false, text:"1,103台・有料（1h300円）"}, area:"121.8 ha",
+    hours:"公園は入園自由／山のエリアは9:00–17:30（11–3月は–16:30）", closed:"なし",
+    equip:"新設の<b>つるみっこパーク</b>（乳幼児向けを含む10種の遊具）、北西口の「子どもの森」に大型複合遊具。",
+    review:"評価 4.7（36件）。幼児向け遊具が園内に点在し、アクセスも良好。",
+    rating:"★4.7", link:"https://www.tsurumiryokuchi.jp/" },
+  { id:4, pref:"大阪府", name:"久宝寺緑地", addr:"大阪府八尾市西久宝寺", icon:"slide", x:325.2, y:340.1,
+    parking:{free:false, text:"810台・有料"}, area:"38.4 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"かたつむり型遊具の<b>まいまい広場</b>、大型複合遊具の「もくもく元気広場」、新しい「あいあい広場」。",
+    review:"じゃらん 4.0（399件）。「広くて遊具のたくさんある公園」との声多数。",
+    rating:"★4.0", link:"https://www.pref.osaka.lg.jp/o130140/" },
+  { id:11, pref:"大阪府", name:"彩都西公園", addr:"大阪府茨木市彩都やまぶき1-3", icon:"rollerSlide", x:312.0, y:278.9,
+    parking:{free:true, text:"無料駐車場あり（9:00–17:00）"}, area:"約5.2 ha（52,000㎡）",
+    hours:"入園自由", closed:"無休",
+    equip:"丘を活かした全長約70mの<b>ローラー滑り台</b>。トンネルやカーブもあり、彩都西部地区で一番大きな公園。",
+    review:"口コミ評価 4.2。長いローラー滑り台が子どもに人気。",
+    rating:"★4.2", link:"https://osakapark.jp/saitonishi-koen/" },
+  { id:12, pref:"大阪府", name:"彩都なないろ公園", addr:"大阪府箕面市彩都粟生北2丁目", icon:"freefall", x:313.8, y:276.7,
+    parking:{free:true, text:"120台・無料（南駐車場20台・北駐車場100台）"}, area:"2.6 ha",
+    hours:"9:00–19:00", closed:"なし",
+    equip:"関西初とされる<b>フリーフォール滑り台を2基</b>設置。幼児向け遊具も充実し、規模の大きい遊び場として人気。",
+    review:"口コミ評価 4.1（122件）。「施設の規模が大きい」「遊具が充実している」と好評。",
+    rating:"★4.1", link:"https://iko-yo.net/facilities/89018" },
+  { id:5, pref:"兵庫県", name:"兵庫県立 播磨中央公園", addr:"兵庫県加東市下滝野1275-8", icon:"bridge", x:180.1, y:245.0,
+    parking:{free:true, text:"約1,000台・無料"}, area:"181.7 ha（県内最大級）",
+    hours:"公園は常時開放／庭園・運動施設等9:00–17:00", closed:"施設は火曜・年末年始（12/29–1/3）",
+    equip:"斜面を使った要塞風の大型遊具・吊り橋・ターザンロープがある<b>子どもの森</b>、水遊びできる「子どもの小川」。",
+    review:"バラ園など四季の花が好評。映画・ドラマのロケ地としても利用される。",
+    rating:"", link:"https://www.hyogo-park.or.jp/harima/" },
+  { id:6, pref:"兵庫県", name:"神戸総合運動公園", addr:"兵庫県神戸市須磨区緑台", icon:"water", x:220.1, y:320.6,
+    parking:{free:false, text:"1,600台・有料（1日700円）"}, area:"55.6 ha",
+    hours:"施設により異なる", closed:"なし",
+    equip:"長い滑り台やロープ遊具のある<b>冒険のくに／自然のくに</b>、無料の水遊び場も。",
+    review:"いこーよ 4.7「無料で思い切り遊べる」。じゃらん 4.0（260件）。",
+    rating:"★4.7", link:"https://www.kobe-park.or.jp/sougou/" },
+  { id:7, pref:"京都府", name:"山城総合運動公園（太陽が丘）", addr:"京都府宇治市広野町八軒屋谷1", icon:"zip", x:370.1, y:270.0,
+    parking:{free:false, text:"1,400台・有料（400円/回）"}, area:"約108 ha",
+    hours:"9:00–17/18/19時（季節で変動）", closed:"木曜（祝日・プール営業期間を除く）、年末年始（12/28–1/4）",
+    equip:"ツリーアスレチックやジップラインなどのアクティビティ、広い芝生広場。",
+    review:"じゃらん 4.1（48件）、いこーよ 4.5（13件）。「駐車場が充実」との声。",
+    rating:"★4.1", link:"https://www.kyoto-park.jp/" },
+  { id:8, pref:"奈良県", name:"奈良県営 馬見丘陵公園", addr:"奈良県北葛城郡河合町佐味田2202", icon:"mound", x:344.7, y:351.9,
+    parking:{free:true, text:"982台・無料"}, area:"65.3 ha（計画）／56.2 ha",
+    hours:"24時間入園自由／公園館9:00–17:00", closed:"公園は無休／公園館は月曜・年末年始（12/28–1/4）",
+    equip:"北エリアにローラー滑り台・ネット・ボルダリング風の大型複合遊具。夏は水遊びも可。園内に多数の古墳。",
+    review:"総合評価 4.44。奈良県内では奈良公園に次ぐ広さで、花の美しさも好評。",
+    rating:"★4.4", link:"https://www.pref.nara.jp/15131.htm" },
+  { id:9, pref:"滋賀県", name:"矢橋帰帆島公園", addr:"滋賀県草津市矢橋町字帰帆2108", icon:"pyramid", x:402.0, y:235.6,
+    parking:{free:true, text:"500台・無料（大型バス可）"}, area:"30 ha",
+    hours:"入園自由", closed:"なし（通年利用可）",
+    equip:"ピラミッド型ネット遊具やローラー滑り台がある<b>子どもの広場</b>、広い「大はらっぱ広場」。",
+    review:"総合評価 4.32。「キッズ・ファミリー向き」「ピクニックが楽しめる」との評。",
+    rating:"★4.3", link:"https://kanko-kusatsu.com/spot/yabasekihantoukouen" },
+  { id:10, pref:"和歌山県", name:"和歌山県植物公園 緑花センター", addr:"和歌山県岩出市東坂本672", icon:"flower", x:265.8, y:422.8,
+    parking:{free:true, text:"約500台・無料"}, area:"11 ha",
+    hours:"9:00–17:00（入園16:30まで）", closed:"火曜（7–9月・12–1月は火水）、祝休日の場合は翌日",
+    equip:"大型遊具のある<b>わんぱく広場</b>とアスレチック。パノラマ花壇・バラ園・あじさい園も。",
+    review:"じゃらん 4.2（46件）、子連れ評価4.5。「きれいに整備されている」と好評。",
+    rating:"★4.2", link:"http://www.w-botanicalgarden.jp/" },
+  { id:13, pref:"大阪府", name:"蜻蛉池公園", addr:"大阪府岸和田市三ヶ山町大字大池尻701", icon:"slide", x:277.7, y:381.8,
+    parking:{free:true, text:"無料"}, area:"約46 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"とんぼをかたどった大型複合遊具が目印。複数の遊具エリアと広い芝生広場がある。",
+    review:"花と大型遊具の両方が楽しめる公園として地域で人気。",
+    rating:"", link:"https://tonboike-osakap.com/" },
+  { id:14, pref:"大阪府", name:"錦織公園", addr:"大阪府富田林市錦織1560", icon:"rollerSlide", x:322.2, y:360.7,
+    parking:{free:true, text:"南駐車場245台・平日無料（土日祝1日640円）、北臨時駐車場278台・土日祝1日640円"}, area:"65.7 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"切り株風の遊具やローラー滑り台、ブランコ、坂道を生かした遊具など起伏に富んだ地形を活かした遊び場。",
+    review:"口コミ評価4.8。幼児・小学生とも高評価。",
+    rating:"★4.8", link:"https://osakapark.jp/nishikori-koen-matome/" },
+  { id:15, pref:"大阪府", name:"深北緑地", addr:"大阪府大東市深野北4-284", icon:"pyramid", x:330.2, y:309.5,
+    parking:{free:false, text:"690台・有料（1h390円）"}, area:"約41 ha",
+    hours:"入園自由（管理事務所9:00–17:00）", closed:"なし",
+    equip:"宇宙がテーマの「ロケット広場」、恐竜や難破船の「恐竜広場」、ロッククライミング風の「とりで広場」の3大型遊具エリア。",
+    review:"総合評価4.35。広い敷地と複数の遊具広場が好評。",
+    rating:"★4.4", link:"https://osakapark.jp/fukakita-ryokuchi-access/" },
+  { id:16, pref:"大阪府", name:"大仙公園", addr:"大阪府堺市堺区百舌鳥夕雲町2", icon:"net", x:298.9, y:351.3,
+    parking:{free:false, text:"4カ所・約373台・有料（2h200円、以降1h100円、1日最大600円）"}, area:"約38 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"仁徳天皇陵古墳に隣接。「児童の森」に堺最大級のジャングルジムを含む遊具広場がある。",
+    review:"口コミ評価4.2。「日本の歴史公園100選」に選定。",
+    rating:"★4.2", link:"https://osakapark.jp/daisen-koen-jidonomori/" },
+  { id:17, pref:"大阪府", name:"二色の浜公園", addr:"大阪府貝塚市澤859-1", icon:"water", x:271.0, y:385.1,
+    parking:{free:false, text:"第一・第二駐車場あり・有料"}, area:"約35 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"大阪市内から一番近い海水浴場。クジラやサザエをかたどった遊具がある児童遊戯場が2カ所。",
+    review:"海辺で遊べるファミリー向けスポットとして人気。",
+    rating:"", link:"https://nishikinohama-park.com/" },
+  { id:18, pref:"大阪府", name:"りんくう公園", addr:"大阪府泉佐野市りんくう往来北1-271", icon:"water", x:258.0, y:389.7,
+    parking:{free:false, text:"あり・有料"}, area:"約20.4 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"関西国際空港を望む芝生広場、遊具、水遊び場、砂浜がある広域公園。",
+    review:"子連れ満足度4.2。夕景の名所としても人気。",
+    rating:"★4.2", link:"https://osaka-info.jp/spot/rinku-park/" },
+  { id:19, pref:"兵庫県", name:"ひまわりの丘公園", addr:"兵庫県小野市浄谷町1545番321外", icon:"mound", x:177.4, y:275.7,
+    parking:{free:true, text:"第1駐車場251台・第2駐車場82台・南駐車場169台、計502台・無料"}, area:"約8 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"大型複合遊具「ひまわりタワー」が中心。春はひまわり、秋はコスモスなど花畑も見ごたえがある。",
+    review:"北播磨エリアの定番ファミリースポットとして人気。",
+    rating:"", link:"https://www.kouen-asobou.com/detail/74136.html" },
+  { id:20, pref:"兵庫県", name:"伊丹スカイパーク", addr:"兵庫県伊丹市森本7丁目1-1", icon:"rollerSlide", x:282.1, y:294.7,
+    parking:{free:false, text:"北・中央・南あわせて約341台・有料（20分100円）"}, area:"約9 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"ローラー滑り台や巨大立体迷路、乳幼児向けエリアがあり、目の前を飛行機が離着陸する滑走路ビュー公園。",
+    review:"飛行機好きの子ども連れに人気の定番スポット。",
+    rating:"", link:"https://www.itami-skypark.com/" },
+  { id:21, pref:"兵庫県", name:"赤穂海浜公園", addr:"兵庫県赤穂市御崎1857-5", icon:"water", x:57.6, y:304.8,
+    parking:{free:false, text:"東・西・北あわせて約1,190台・有料（普通車550円）"}, area:"71.7 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"「タテホわくわくランド」に年齢別のアスレチック遊具、変わり種自転車、池のボートなど多彩な設備。",
+    review:"総合評価4.3（239件）。「遊具の多さと規模に圧倒された」との声。",
+    rating:"★4.3", link:"https://www.hyogo-park.or.jp/akokaihin/contents/about/index.html" },
+  { id:22, pref:"兵庫県", name:"しあわせの村", addr:"兵庫県神戸市北区しあわせの村1番1号", icon:"rollerSlide", x:225.0, y:303.5,
+    parking:{free:false, text:"計1,600台・有料"}, area:"約205 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"全長約50mのロングスライダー、ロープスライダー、インクルーシブ遊具、ふわふわドームなど種類豊富。",
+    review:"評価★4.3。「長い滑り台や砂場でたくさん遊べる」と好評。",
+    rating:"★4.3", link:"https://www.shiawasenomura.org/" },
+  { id:23, pref:"兵庫県", name:"須磨海浜公園", addr:"兵庫県神戸市須磨区若宮町1丁目3、須磨浦通1丁目1", icon:"water", x:219.1, y:329.4,
+    parking:{free:false, text:"約1,054台・有料"}, area:"約22 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"リニューアルされた海浜公園。水遊び場や遊具広場、ビーチが一体になったエリア。",
+    review:"リニューアル後、家族連れに人気再燃中。",
+    rating:"", link:"https://kobesuma-seaside-park.jp/park/" },
+  { id:24, pref:"京都府", name:"けいはんな記念公園", addr:"京都府相楽郡精華町精華台6丁目1番地", icon:"flower", x:361.7, y:305.3,
+    parking:{free:false, text:"有料（普通車500円）"}, area:"約24 ha",
+    hours:"入園自由（一部施設9:00–17:00）", closed:"水景エリア等は月曜休（祝日の場合翌日）",
+    equip:"広い芝生広場と日本庭園、子ども向け遊具ゾーンがある関西文化学術研究都市の中核公園。",
+    review:"広々とした芝生でのびのび遊べると好評。",
+    rating:"", link:"https://www.kouen-asobou.com/detail/86248.html" },
+  { id:25, pref:"京都府", name:"宝が池公園 子どもの楽園", addr:"京都府京都市左京区上高野流田町他", icon:"net", x:365.0, y:221.9,
+    parking:{free:false, text:"通常102台・最大171台・有料（1日1回520円）"}, area:"約4 ha（子どもの楽園エリア）",
+    hours:"入園自由", closed:"なし",
+    equip:"「夢の山」を中心にネット登りや迷路など遊具ゾーンが充実。宝が池を望む立地。",
+    review:"京都市内では貴重な大型遊具エリアとして人気。",
+    rating:"", link:"https://www.kyoto-kankou.or.jp/info_search/9816" },
+  { id:26, pref:"京都府", name:"八幡市民スポーツ公園", addr:"京都府八幡市野尻正畑12", icon:"slide", x:344.6, y:269.0,
+    parking:{free:true, text:"無料"}, area:"情報未確認",
+    hours:"9:00–21:00", closed:"情報未確認",
+    equip:"カラフルで清潔感のある大型遊具と、幼児向けの遊びエリアを備える。",
+    review:"料金・駐車場とも無料で使いやすいと評判。",
+    rating:"", link:"https://www.yawatataiikukan.jp/spkou.htm" },
+  { id:27, pref:"京都府", name:"西宇治公園", addr:"京都府宇治市小倉町蓮池20-1", icon:"net", x:366.9, y:262.0,
+    parking:{free:true, text:"100台・無料"}, area:"3.87 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"2024年にインクルーシブ遊具を新設。幼児向け遊具やバスケット・サッカーコートもあり、夏はプールも開催。",
+    review:"「比較的新しくて綺麗」「駐車場も広い」と好評。",
+    rating:"", link:"https://www.city.uji.kyoto.jp/soshiki/36/4944.html" },
+  { id:28, pref:"京都府", name:"舞鶴文化公園", addr:"京都府舞鶴市上安久420", icon:"water", x:269.7, y:113.0,
+    parking:{free:true, text:"あり・無料"}, area:"6 ha",
+    hours:"入園自由（プールは夏季営業）", closed:"情報未確認",
+    equip:"大型遊具のほか、流れるプールや浅いプールなど夏季のプール施設が充実。",
+    review:"プールと遊具を一度に楽しめると家族連れに人気。",
+    rating:"", link:"https://iko-yo.net/facilities/113113" },
+  { id:29, pref:"京都府", name:"梅小路公園", addr:"京都府京都市下京区観喜寺町56-3", icon:"net", x:353.3, y:239.1,
+    parking:{free:false, text:"一般駐車場なし（交通弱者用119台のみ）"}, area:"約13.7 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"「すざくゆめ広場」に市内最大規模という長さ14mの滑り台と高さ6mのロープ型ジャングルジム。",
+    review:"JR梅小路京都西駅直結で、京都市内の大型遊具スポットとして人気。",
+    rating:"", link:"https://www.kyoto-ga.jp/umekouji/facilities/" },
+  { id:30, pref:"奈良県", name:"平成榛原子供のもり公園", addr:"奈良県宇陀市榛原桧牧2107-4", icon:"mound", x:397.9, y:357.8,
+    parking:{free:false, text:"有料（普通車500円）"}, area:"14.6 ha",
+    hours:"入園自由", closed:"情報未確認",
+    equip:"全長400mの回廊型大型遊具「恐竜の国」、100人乗りと言われる巨大ブランコ、110mのローラースライダーなど。",
+    review:"スケールの大きい遊具で遠方からも訪れる人気公園。",
+    rating:"", link:"https://www.city.uda.lg.jp/soshiki/30/3666.html" },
+  { id:31, pref:"奈良県", name:"奈良県立 大和民俗公園", addr:"奈良県大和郡山市矢田町545", icon:"flower", x:355.4, y:331.3,
+    parking:{free:true, text:"155台・無料"}, area:"26.6 ha",
+    hours:"入園自由", closed:"情報未確認",
+    equip:"移築古民家が並ぶ民俗博物館のある総合公園。梅など四季の花も楽しめる。犬連れもOK。",
+    review:"入場・駐車場とも無料で散策に人気。",
+    rating:"", link:"https://www.narakko.jp/yamatominzoku/" },
+  { id:32, pref:"奈良県", name:"鴻ノ池運動公園", addr:"奈良県奈良市法蓮佐保山4-5-1", icon:"bridge", x:369.0, y:315.9,
+    parking:{free:true, text:"約500台・無料"}, area:"約30 ha",
+    hours:"入園自由（施設により異なる）", closed:"情報未確認",
+    equip:"陸上競技場・野球場などスポーツ施設が中心の総合運動公園。広い芝生エリアもある。",
+    review:"奈良市内の大規模スポーツ公園として定番。",
+    rating:"", link:"https://konoike-sports-park.jp/" },
+  { id:33, pref:"滋賀県", name:"ひばり公園", addr:"滋賀県東近江市池庄町610", icon:"mound", x:457.1, y:205.1,
+    parking:{free:true, text:"320台・無料"}, area:"約10 ha",
+    hours:"8:30–22:00", closed:"情報未確認",
+    equip:"子供広場に大型総合遊具を整備。野球場やテニスコートなどスポーツ施設も充実。",
+    review:"広い敷地でスポーツも遊具も楽しめると好評。",
+    rating:"", link:"https://www.biwako-visitors.jp/spot/detail/2981/" },
+  { id:34, pref:"滋賀県", name:"滋賀県希望が丘文化公園", addr:"滋賀県蒲生郡竜王町薬師1178", icon:"pyramid", x:439.5, y:225.5,
+    parking:{free:false, text:"1,761台・有料（1日500円）"}, area:"約416 ha",
+    hours:"4–9月9:00–18:00／10–3月9:00–17:00", closed:"10–2月の月曜、12/29–1/3",
+    equip:"豊かな自然に囲まれた広大な文化公園。スポーツ施設やキャンプ場も備える。",
+    review:"入園は無料で、1日かけて楽しめる規模と好評。",
+    rating:"", link:"https://www.pref.shiga.lg.jp/kensei/gaiyou/annai/20997.html" },
+  { id:35, pref:"滋賀県", name:"浅井文化スポーツ公園", addr:"滋賀県長浜市大依町15", icon:"rollerSlide", x:464.2, y:117.4,
+    parking:{free:true, text:"無料"}, area:"情報未確認",
+    hours:"9:00–21:00", closed:"情報未確認",
+    equip:"大型のローラー滑り台やザイルクライミング、ターザンロープなど子どもに人気の遊具がそろう公園ゾーン。",
+    review:"湖北エリアの遊具スポットとして地元で人気。",
+    rating:"", link:"https://iko-yo.net/facilities/33170" },
+  { id:36, pref:"滋賀県", name:"水生植物公園みずの森", addr:"滋賀県草津市下物町1091", icon:"flower", x:393.3, y:223.5,
+    parking:{free:true, text:"100台・無料"}, area:"情報未確認",
+    hours:"情報未確認", closed:"情報未確認",
+    equip:"ハスやスイレンなど水生植物が四季を彩る植物園。「花影の池」が見どころ。",
+    review:"夏の睡蓮が見事と評判の琵琶湖畔の植物園。",
+    rating:"", link:"https://www.asoview.com/spot/25206cc3310040101/" },
+  { id:37, pref:"滋賀県", name:"滋賀県立 近江富士花緑公園", addr:"滋賀県野洲市三上519", icon:"mound", x:420.6, y:219.1,
+    parking:{free:true, text:"ふるさと館30台・植物園150台・無料"}, area:"情報未確認",
+    hours:"9:00–17:00", closed:"毎週月曜",
+    equip:"2025年に遊具広場をリニューアルし大型遊具が新設。ぐるぐるアスレチックや迷路、すべり台など県産木材のアスレチック10種。",
+    review:"「駐車場も入場料も無料」とリニューアル後の口コミで好評。",
+    rating:"", link:"https://www.oumifuji-karyoku.com/" },
+  { id:38, pref:"和歌山県", name:"杉村公園", addr:"和歌山県橋本市御幸辻786", icon:"bridge", x:323.7, y:417.7,
+    parking:{free:true, text:"15台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"吊り橋やアスレチック施設、郷土資料館、芝生広場が点在する公園。",
+    review:"吊り橋を渡るハイキング気分も楽しめると好評。",
+    rating:"", link:"https://www.wakayama-kanko.or.jp/spots/detail_1029.html" },
+  { id:39, pref:"和歌山県", name:"さぎのせ公園", addr:"和歌山県岩出市中島1183", icon:"rollerSlide", x:272.8, y:425.0,
+    parking:{free:true, text:"あり・無料"}, area:"約3.7 ha",
+    hours:"入園自由", closed:"情報未確認",
+    equip:"クライミングやローラー滑り台の大型複合遊具と、巨大トランポリン「ふわふわドーム」。",
+    review:"ふわふわドームが子どもに大人気の公園。",
+    rating:"", link:"https://iko-yo.net/facilities/38960" },
+  { id:40, pref:"和歌山県", name:"のかみふれあい公園", addr:"和歌山県海草郡紀美野町西野971", icon:"pyramid", x:262.9, y:454.7,
+    parking:{free:true, text:"あり・無料"}, area:"情報未確認",
+    hours:"情報未確認", closed:"情報未確認",
+    equip:"「芝わんぱく広場」に巨大遊具。滑り台や吊り橋、フリークライムのほかキャンプ場やパークゴルフ場も。",
+    review:"キャンプ・BBQも一緒に楽しめると家族連れに好評。",
+    rating:"", link:"https://www.guruwaka.com/nokamifureai-park/" },
+  { id:41, pref:"和歌山県", name:"根来山げんきの森", addr:"和歌山県岩出市根来2277", icon:"flower", x:264.0, y:426.4,
+    parking:{free:true, text:"普通車46台・無料"}, area:"情報未確認",
+    hours:"9:00–17:00（1月は–16:00）", closed:"火曜（祝日の場合翌日）、8月は火水",
+    equip:"バリアフリー遊歩道や木製展望台があり、プレーパークや自然観察会など体験型イベントが充実。",
+    review:"遊具より自然体験中心の公園として親子に人気。",
+    rating:"", link:"https://www.wakayama-kanko.or.jp/spots/detail_1051.html" },
+  { id:42, pref:"和歌山県", name:"小目津公園", addr:"和歌山県日高郡みなべ町山内368-4", icon:"net", x:265.5, y:567.9,
+    parking:{free:true, text:"無料"}, area:"7,500 ㎡",
+    hours:"入園自由", closed:"なし",
+    equip:"ウミガメをかたどった遊具やブランコ、ターザンロープ、ネット遊具がそろう町営公園。",
+    review:"小規模ながら遊具が充実していると地元で評判。",
+    rating:"", link:"https://www.guruwaka.com/komezu-park/" },
+  { id:43, pref:"大阪府", name:"長居公園", addr:"大阪府大阪市住吉区長居公園1-1", icon:"net", x:305.4, y:339.3,
+    parking:{free:false, text:"地下駐車場255台・有料（7-23時営業）"}, area:"約65.7 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"長居植物園、長居陸上競技場、自然史博物館などが集まる総合公園。遊具広場もある。",
+    review:"スポーツ施設と自然を一度に楽しめる大阪市内の定番公園。",
+    rating:"", link:"https://www.nagai-park.jp/" },
+  { id:44, pref:"大阪府", name:"大阪城公園", addr:"大阪府大阪市中央区大阪城", icon:"bridge", x:306.9, y:318.6,
+    parking:{free:false, text:"森ノ宮駐車場98台・大阪城公園駅前駐車場171台・有料"}, area:"約105.6 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"広大な城址公園。芝生広場や梅林・桜広場があり、天守閣周辺を含め一日散策できる。",
+    review:"観光客にも人気の大阪を代表する公園。",
+    rating:"", link:"https://www.osakacastlepark.jp/" },
+  { id:45, pref:"大阪府", name:"浜寺公園", addr:"大阪府堺市西区浜寺公園町", icon:"water", x:288.5, y:355.0,
+    parking:{free:false, text:"第1〜5駐車場・約960台・有料（1h390円）"}, area:"約75.3 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"松林に囲まれた臨海公園。バラ庭園やテニスコート、遊具広場がある。",
+    review:"「日本の都市公園100選」。松林の散策路が有名。",
+    rating:"", link:"https://osakapark.jp/hamadera-koen-matome/" },
+  { id:46, pref:"大阪府", name:"金岡公園", addr:"大阪府堺市北区金岡町", icon:"slide", x:308.4, y:348.1,
+    parking:{free:false, text:"約35台・有料（タイムズ運営）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"大泉緑地に近い街区公園。遊具広場やスポーツ施設がある。",
+    review:"地域住民の憩いの場として利用される公園。",
+    rating:"", link:"https://www.city.sakai.lg.jp/kurashi/koen/mokuteki/yugu/index.html" },
+  { id:47, pref:"大阪府", name:"大浜公園", addr:"大阪府堺市堺区大浜北町", icon:"water", x:291.5, y:347.2,
+    parking:{free:false, text:"普通車265台・バス3台・有料（2h200円、1日最大600円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"水族館跡地を含む臨海公園。相撲場や広場があり、堺花火大会の会場にもなる。",
+    review:"歴史ある堺の海辺の公園として親しまれている。",
+    rating:"", link:"https://www.sakai-tcb.or.jp/spot/detail/41" },
+  { id:48, pref:"大阪府", name:"山田池公園", addr:"大阪府枚方市山田池公園", icon:"flower", x:331.5, y:282.3,
+    parking:{free:false, text:"第1・第2駐車場あわせて460台・有料（平日1h210円、24h最大1,030円）"}, area:"約32.3 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"大きな池を中心とした公園で、花菖蒲園や遊具広場がある。バードウォッチングも人気。",
+    review:"四季の花と自然観察が楽しめる枚方市の代表的な公園。",
+    rating:"", link:"https://yamadaike.osaka-park.or.jp/" },
+  { id:49, pref:"大阪府", name:"花園中央公園", addr:"大阪府東大阪市中石切町", icon:"rollerSlide", x:322.6, y:323.4,
+    parking:{free:false, text:"第1駐車場141台ほか・有料（平日60分200円、1日最大1,000円）"}, area:"約17.4 ha",
+    hours:"入園自由", closed:"なし",
+    equip:"花園ラグビー場に隣接する総合公園。大型遊具やせせらぎ、ラグビーをテーマにした広場がある。",
+    review:"ラグビーの街・東大阪を象徴する公園として人気。",
+    rating:"", link:"https://hanazono-centralparks-hos.com/" },
+  { id:50, pref:"大阪府", name:"五月山公園", addr:"大阪府池田市五月丘", icon:"mound", x:286.4, y:280.4,
+    parking:{free:false, text:"有料（入園は無料）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"五月山動物園（無料）に隣接する山あいの公園。展望台やハイキングコースもある。",
+    review:"小動物園と自然散策が一緒に楽しめると家族連れに人気。",
+    rating:"", link:"https://www.ikedashi-kanko.jp/spot/recommend-spot01" },
+  { id:51, pref:"大阪府", name:"千里南公園", addr:"大阪府吹田市千里万博公園", icon:"net", x:302.0, y:293.5,
+    parking:{free:false, text:"48台・有料（最初30分無料、以降30分100円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"千里ニュータウン内の総合公園。芝生広場と遊具エリアがある。",
+    review:"ニュータウン住民の散歩・遊び場として定番。",
+    rating:"", link:"https://www.city.suita.osaka.jp/sangyo/1018152/1018167/1018168/1028864/index.html" },
+  { id:52, pref:"大阪府", name:"千里北公園", addr:"大阪府吹田市古江台", icon:"net", x:301.6, y:289.5,
+    parking:{free:false, text:"第1駐車場68台・第2駐車場37台・有料（最初30分無料）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"千里南公園と対をなすニュータウン内の総合公園。遊具広場がある。",
+    review:"千里ニュータウンの緑地として地域で親しまれている。",
+    rating:"", link:"https://parkful.net/2017/05/senrikita-park/" },
+  { id:53, pref:"大阪府", name:"千里中央公園", addr:"大阪府豊中市新千里東町", icon:"flower", x:298.9, y:291.5,
+    parking:{free:true, text:"展望台付近・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"千里中央駅近くの高台にある公園。展望台から大阪平野を一望できる。",
+    review:"駅近くで気軽に立ち寄れる公園として便利。",
+    rating:"", link:"https://iko-yo.net/facilities/2495" },
+  { id:54, pref:"大阪府", name:"わんぱく王国", addr:"大阪府阪南市山中渓119-8", icon:"rollerSlide", x:260.4, y:413.8,
+    parking:{free:false, text:"140台・有料（1日500円）"}, area:"情報未確認",
+    hours:"10〜5月9:30–16:30／6〜9月9:30–17:00", closed:"毎月第3水曜、12/29–1/3",
+    equip:"恐竜モチーフのローラー滑り台で有名。アスレチックや動物ふれあいコーナーもある。",
+    review:"恐竜ローラー滑り台が人気で遠方からも訪れる公園。",
+    rating:"", link:"https://www.hannan-tb.jp/spot/detail.php?pkId=7" },
+  { id:55, pref:"大阪府", name:"摂津峡公園", addr:"大阪府高槻市萩谷", icon:"water", x:320.7, y:267.8,
+    parking:{free:false, text:"下の口123台・上の口30台・有料（1回1,000円）"}, area:"情報未確認",
+    hours:"入園自由（上の口駐車場は8:00–17:00）", closed:"なし",
+    equip:"渓谷沿いの自然公園。川遊びやハイキングコースがあり、キャンプ場も隣接。",
+    review:"夏は川遊びでにぎわう高槻市の人気スポット。",
+    rating:"", link:"https://www.city.takatsuki.osaka.jp/soshiki/54/5519.html" },
+  { id:56, pref:"大阪府", name:"枚岡公園", addr:"大阪府東大阪市出雲井町", icon:"mound", x:332.0, y:320.6,
+    parking:{free:true, text:"無料（9:00–17:00、臨時有）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"生駒山麓の自然公園。展望広場や遊具、枚岡梅林がある。",
+    review:"無料駐車場があり、気軽に自然と触れ合えると好評。",
+    rating:"", link:"https://pikahiga.jp/enjoy/11027/" },
+  { id:57, pref:"大阪府", name:"せんなん里海公園", addr:"大阪府阪南市石田", icon:"water", x:235.4, y:409.9,
+    parking:{free:false, text:"約1,000台・有料（平日320円、土日祝620円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"大阪府営公園で唯一海に面した公園。人工ビーチや芝生広場、遊具がある。",
+    review:"海水浴とピクニックが一度に楽しめる公園として人気。",
+    rating:"", link:"https://sennan.osaka-park.or.jp/" },
+  { id:58, pref:"大阪府", name:"寺ヶ池公園", addr:"大阪府河内長野市", icon:"pyramid", x:315.9, y:380.1,
+    parking:{free:true, text:"2カ所あり"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"ため池を囲む公園。テニスコートや野球場があり、池の周りを散策できる。",
+    review:"桜の名所としても知られる河内長野市の公園。",
+    rating:"", link:"https://www.teragaike-park.com/" },
+  { id:59, pref:"兵庫県", name:"須磨離宮公園", addr:"兵庫県神戸市須磨区東須磨1-1", icon:"flower", x:222.1, y:328.7,
+    parking:{free:false, text:"本園272台・植物園22台（予約制）・有料（500円）"}, area:"情報未確認",
+    hours:"情報未確認", closed:"情報未確認",
+    equip:"旧皇室の離宮跡に整備された西洋式庭園。噴水広場やバラ園、児童遊園がある。",
+    review:"庭園美と遊具広場の両方が楽しめる神戸の名所。",
+    rating:"", link:"https://www.kobe-park.or.jp/rikyu/" },
+  { id:60, pref:"兵庫県", name:"明石公園", addr:"兵庫県明石市明石公園1-27", icon:"bridge", x:192.0, y:328.2,
+    parking:{free:false, text:"南駐車場366台・北駐車場134台・有料（30分未満無料）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"明石城跡を含む総合公園。お堀や野球場があり、遊具広場や芝生広場も充実。",
+    review:"桜の名所としても知られる明石市のシンボル公園。",
+    rating:"", link:"https://hyogo-akashipark.jp/" },
+  { id:61, pref:"兵庫県", name:"大蔵海岸公園", addr:"兵庫県明石市大蔵海岸通2-11", icon:"water", x:189.0, y:331.9,
+    parking:{free:false, text:"東駐車場147台・西駐車場177台・有料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"人工海浜のある臨海公園。明石海峡大橋を望みながら水遊びができる。",
+    review:"「日本の夕陽・朝日百選」に選ばれた景観も魅力。",
+    rating:"", link:"https://www.yokoso-akashi.jp/facility/2513" },
+  { id:62, pref:"兵庫県", name:"甲子園浜海浜公園", addr:"兵庫県西宮市甲子園浜1ほか", icon:"water", x:267.8, y:312.1,
+    parking:{free:false, text:"東132台・西73台・有料（1h100円、24h最大800円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"干潟の自然観察ができる海浜公園。磯遊びや野鳥観察が人気。",
+    review:"自然豊かな干潟で生き物観察ができると家族連れに好評。",
+    rating:"", link:"https://parkful.net/2016/10/koushienhama-kaihin-park/" },
+  { id:63, pref:"兵庫県", name:"甲山森林公園", addr:"兵庫県西宮市甲山町43", icon:"mound", x:262.1, y:291.0,
+    parking:{free:true, text:"無料（台数に限りあり）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"甲山のふもとに広がる森林公園。ハイキングコースや芝生広場がある。",
+    review:"自然散策スポットとして地元で親しまれている。",
+    rating:"", link:"https://kabutoyama-park.com/" },
+  { id:64, pref:"兵庫県", name:"昆陽池公園", addr:"兵庫県伊丹市昆陽池3", icon:"flower", x:285.3, y:292.5,
+    parking:{free:false, text:"151台・有料（1h200円、以降30分100円、9–17時営業）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"大きな池を中心にした公園で、日本列島をかたどった中の島や白鳥の飼育舎がある。",
+    review:"野鳥観察と散策が楽しめる伊丹市のシンボル公園。",
+    rating:"", link:"https://www.city.itami.lg.jp/SOSIKI/TOSHIKOTU/KOUEN/oashisu/15104.html" },
+  { id:65, pref:"兵庫県", name:"手柄山中央公園", addr:"兵庫県姫路市西延末440", icon:"slide", x:126.1, y:283.6,
+    parking:{free:false, text:"約1,500台・有料（200円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"遊園地跡地を含む姫路市の総合公園。多目的広場や植物園、水族館がある。",
+    review:"姫路駅から近く、家族で一日過ごせる公園として人気。",
+    rating:"", link:"https://travel.yahoo.co.jp/kanko/spot-00002473/" },
+  { id:66, pref:"兵庫県", name:"三木総合防災公園", addr:"兵庫県三木市志染町三津田1708", icon:"net", x:190.1, y:294.2,
+    parking:{free:true, text:"約1,555台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"防災機能を備えた広大な総合公園。陸上競技場や芝生広場、遊具エリアがある。",
+    review:"無料で広い駐車場があり、北播磨エリアの定番公園。",
+    rating:"", link:"https://www.couleur-harima.com/leisure/mikisogobousaikouen/index.html" },
+  { id:67, pref:"兵庫県", name:"国営明石海峡公園", addr:"兵庫県淡路市夢舞台8-10", icon:"flower", x:192.8, y:340.0,
+    parking:{free:false, text:"約500台・有料（1日500円）"}, area:"情報未確認",
+    entryFree:false,
+    hours:"季節により変動", closed:"情報未確認",
+    equip:"150種類の遊具が集まる「夢っこランド」、ユニバーサルデザインの大型遊具「子供の森」など規模が大きい。",
+    review:"入園は有料だが、遊具の規模と種類の豊富さで淡路島随一と評判。",
+    rating:"", link:"https://awaji-kaikyopark.kkr.mlit.go.jp/" },
+  { id:68, pref:"京都府", name:"岡崎公園", addr:"京都府京都市左京区岡崎最勝寺町他", icon:"bridge", x:362.8, y:232.0,
+    parking:{free:false, text:"地下506台・有料（8–20:30は300円/30分、最大1,200円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"平安神宮や京都市美術館、動物園に囲まれた公園。琵琶湖疏水の十石舟めぐりも楽しめる。",
+    review:"美術館・動物園とあわせて一日観光できるスポット。",
+    rating:"", link:"https://www.kyoto-kankou.or.jp/info_search/4052" },
+  { id:69, pref:"京都府", name:"京都府立植物園", addr:"京都府京都市左京区下鴨半木町", icon:"flower", x:358.5, y:223.1,
+    parking:{free:false, text:"150台・有料（1h300円、上限1,200円）"}, area:"情報未確認",
+    entryFree:false,
+    hours:"9:00–17:00（温室は–16:00）", closed:"情報未確認",
+    equip:"四季折々の植物が楽しめる広大な植物園。芝生広場やこども向けの遊べるエリアもある。",
+    review:"中学生以下は入園無料で、家族連れの散策に人気。",
+    rating:"", link:"https://www.pref.kyoto.jp/plant/" },
+  { id:70, pref:"奈良県", name:"奈良公園", addr:"奈良県奈良市雑司町・高畑町・登大路町・春日野町一帯", icon:"mound", x:375.9, y:319.2,
+    parking:{free:false, text:"登大路駐車場275台など有料中心（季節限定の無料駐車場も一部あり）"}, area:"情報未確認",
+    hours:"24時間入園自由（若草山は9:00–17:00）", closed:"なし",
+    equip:"鹿と触れ合える広大な公園。東大寺・春日大社に隣接し、芝生広場で自由に遊べる。",
+    review:"鹿せんべいやりが子どもに大人気の奈良観光の定番。",
+    rating:"", link:"https://narashikanko.or.jp/ja/spot/park/narakoen/" },
+  { id:71, pref:"大阪府", name:"住之江公園", addr:"大阪府大阪市住之江区南加賀屋1-1-117", icon:"net", x:296.2, y:338.6,
+    parking:{free:false, text:"63台・有料（最初1h390円、以降1h100円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"住之江公園駅直結の総合公園。野球場や相撲場があり、遊具広場も備える。",
+    review:"駅近でアクセスしやすい大阪市内の公園。",
+    rating:"", link:"https://www.pref.osaka.lg.jp/shisetsu/o130140/shisetsu_000029.html" },
+  { id:72, pref:"大阪府", name:"八幡屋公園", addr:"大阪府大阪市港区田中3-1", icon:"slide", x:286.4, y:325.1,
+    parking:{free:false, text:"118台・有料（昼間30分200円、平日1日最大600円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"大阪プールに隣接する港区の総合公園。大型遊具や野球場がある。",
+    review:"プールとあわせて利用する家族連れが多い公園。",
+    rating:"", link:"https://www.yahataya-park.jp/" },
+  { id:73, pref:"大阪府", name:"南港中央公園", addr:"大阪府大阪市住之江区南港中", icon:"water", x:282.6, y:333.9,
+    parking:{free:false, text:"隣接タイムズ駐車場195台・有料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"ATCやニフレルに近い臨海公園。バーベキュー広場や遊具がある。",
+    review:"大阪南港エリアでのお出かけスポットとして定番。",
+    rating:"", link:"https://iko-yo.net/facilities?prefecture_ids%5B%5D=27" },
+  { id:74, pref:"大阪府", name:"万博記念公園", addr:"大阪府吹田市千里万博公園1-1", icon:"flower", x:306.8, y:287.6,
+    parking:{free:false, text:"5カ所・計4,300台・有料（平日2h410円〜）"}, area:"約264 ha",
+    entryFree:false,
+    hours:"9:30–17:00（最終入園16:30）", closed:"水曜（祝日の場合翌日）、年末年始",
+    equip:"無料で遊べる「わくわく池の冒険ひろば」のほか、有料エリアに巨大立体迷路や大型すべり台も。太陽の塔で有名。",
+    review:"入園は有料（大人260円）だが、無料の遊具エリアだけでも十分遊べると評判。",
+    rating:"", link:"https://www.expo70-park.jp/" },
+  { id:75, pref:"大阪府", name:"大阪府民の森 むろいけ園地", addr:"大阪府四條畷市大字逢阪458-2", icon:"mound", x:338.2, y:305.7,
+    parking:{free:true, text:"162台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"水辺や森を生かした自然体験エリア「森の宝島」。アスレチック風の遊びができる。",
+    review:"自然の中で思いきり遊べると家族連れに人気。",
+    rating:"", link:"https://osaka-info.jp/spot/osaka-park-muroike/" },
+  { id:76, pref:"大阪府", name:"大阪府民の森 くろんど園地", addr:"大阪府交野市私部", icon:"water", x:342.1, y:294.2,
+    parking:{free:true, text:"50台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"くろんど池を中心にした自然公園。ハイキングやBBQが楽しめる。",
+    review:"静かな自然環境でのピクニックに向いている公園。",
+    rating:"", link:"https://osaka-info.jp/spot/osaka-park-kurondo/" },
+  { id:77, pref:"大阪府", name:"元茨木川緑地", addr:"大阪府茨木市（桜通り沿い）", icon:"flower", x:316.3, y:284.7,
+    parking:{free:true, text:"35台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"桜並木が続く細長い緑地。デイキャンプ場や遊具広場がある。",
+    review:"桜の名所として知られる茨木市中心部の緑地。",
+    rating:"", link:"https://camp.citylife-new.com/" },
+  { id:78, pref:"大阪府", name:"ダムパークいばきた", addr:"大阪府茨木市（安威川ダム周辺）", icon:"bridge", x:320.5, y:272.1,
+    parking:{free:true, text:"178台・無料"}, area:"情報未確認",
+    hours:"情報未確認", closed:"情報未確認",
+    equip:"安威川ダムにできた新しい公園。展望台や広場があり、自然を眺めながら過ごせる。",
+    review:"2023年オープンの新しいスポットとして注目されている。",
+    rating:"", link:"https://dampark-ibakita.com/access" },
+  { id:79, pref:"大阪府", name:"石川河川公園", addr:"大阪府羽曳野市駒ヶ谷140", icon:"water", x:327.3, y:359.3,
+    parking:{free:false, text:"50台・土日祝のみ有料（1日640円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"石川沿いに広がる河川公園。バーベキュー場や広い芝生、遊歩道がある。",
+    review:"川遊びとBBQが楽しめる南河内エリアの人気スポット。",
+    rating:"", link:"https://www.pref.osaka.lg.jp/shisetsu/cate005/071.html" },
+  { id:80, pref:"大阪府", name:"堺自然ふれあいの森", addr:"大阪府堺市南区畑1740", icon:"mound", x:314.5, y:370.2,
+    parking:{free:true, text:"約40台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"里山の自然を生かした体験型の森。ハイキングコースや自然観察が楽しめる。",
+    review:"自然体験を重視する家族連れに人気のスポット。",
+    rating:"", link:"https://www.sakai-tcb.or.jp/spot/detail/69" },
+  { id:81, pref:"大阪府", name:"泉佐野丘陵緑地", addr:"大阪府泉佐野市上之郷90", icon:"mound", x:269.9, y:399.3,
+    parking:{free:true, text:"126台・無料"}, area:"情報未確認",
+    hours:"9:30–17:00（11〜2月は–16:30）", closed:"月曜（祝日の場合翌日）",
+    equip:"丘陵地を生かした自然体験型の公園。夏休みの自然教室なども開催される。",
+    review:"駐車場無料で気軽に自然と触れ合えると好評。",
+    rating:"", link:"https://izumisano-kyuryo.jp/" },
+  { id:82, pref:"大阪府", name:"みさき公園", addr:"大阪府泉南郡岬町淡輪", icon:"flower", x:225.1, y:412.8,
+    parking:{free:false, text:"有料（1日1,200円）"}, area:"情報未確認",
+    hours:"情報未確認", closed:"情報未確認",
+    equip:"遊園地跡地を活用した市民公園。ニフレルの動物とふれあえるエリアもある。",
+    review:"かつての遊園地の面影を残しつつ、新しい公園として再整備中。",
+    rating:"", link:"https://themarytavyinn.com/misaki-park-parking/" },
+  { id:83, pref:"大阪府", name:"烏帽子形公園", addr:"大阪府河内長野市喜多町", icon:"pyramid", x:315.0, y:380.3,
+    parking:{free:true, text:"15台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"烏帽子形城跡を含む歴史と自然を感じられる公園。",
+    review:"歴史散策とあわせて楽しめる河内長野市の公園。",
+    rating:"", link:"https://kawachibi.com/eboshigata-park/" },
+  { id:84, pref:"兵庫県", name:"須磨浦公園", addr:"兵庫県神戸市須磨区一ノ谷町4-1-24", icon:"mound", x:214.8, y:330.6,
+    parking:{free:false, text:"223台・有料（最初1h300円、以降1h200円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"ロープウェイやリフトで山上へ上がれる観光公園。桜の名所でもある。",
+    review:"一の谷の史跡とあわせて楽しめる須磨の観光スポット。",
+    rating:"", link:"https://www.kobe-park.or.jp/park/sumaura/" },
+  { id:85, pref:"兵庫県", name:"神戸市立森林植物園", addr:"兵庫県神戸市北区山田町上谷上字長尾1-2", icon:"flower", x:224.4, y:296.1,
+    parking:{free:false, text:"700台（シーズン最大1,200台）・有料（乗用車500円）"}, area:"情報未確認",
+    entryFree:false,
+    hours:"情報未確認", closed:"情報未確認",
+    equip:"六甲山系の広大な植物園。四季折々の森林浴とあじさいなどの花が楽しめる。",
+    review:"自然散策好きの家族に人気の植物園。",
+    rating:"", link:"https://iko-yo.net/facilities/2896" },
+  { id:86, pref:"兵庫県", name:"神戸市立六甲山牧場", addr:"兵庫県神戸市灘区六甲山町中一里山1-1", icon:"mound", x:244.3, y:298.1,
+    parking:{free:false, text:"730台・有料"}, area:"情報未確認",
+    entryFree:false,
+    hours:"情報未確認", closed:"情報未確認",
+    equip:"羊や牛などの動物とふれあえる高原の牧場。バターやチーズ作り体験もできる。",
+    review:"動物とのふれあいが子どもに人気の六甲山上の牧場。",
+    rating:"", link:"https://www.rokkosan.net/bokujyo/" },
+  { id:87, pref:"兵庫県", name:"浜甲子園運動公園", addr:"兵庫県西宮市枝川町26", icon:"net", x:266.8, y:311.8,
+    parking:{free:false, text:"257台・有料（30分無料、以降30分100円、1日最大1,000円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"野球場やグラウンドが中心の運動公園。広場で遊べるスペースもある。",
+    review:"スポーツ施設が充実した西宮市南部の公園。",
+    rating:"", link:"https://parkful.net/2016/09/naruohama-hamakoushien-park/" },
+  { id:88, pref:"兵庫県", name:"鳴尾浜臨海公園", addr:"兵庫県西宮市鳴尾浜3-13", icon:"water", x:271.1, y:314.0,
+    parking:{free:false, text:"400台・有料（最初1h100円、1日最大1,000円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"臨海部の運動公園。野球場やグラウンドがあり、海沿いの散策も楽しめる。",
+    review:"西宮市の海沿いエリアで人気のスポーツ公園。",
+    rating:"", link:"http://www.winriver.net/kansai/park/park/hyogo/naruohama.php" },
+  { id:89, pref:"兵庫県", name:"兵庫県立 有馬富士公園", addr:"兵庫県三田市福島1091-2", icon:"mound", x:245.0, y:259.9,
+    parking:{free:true, text:"出合いのゾーン674台・休養ゾーン151台、計825台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"有馬富士を望む広大な公園。「あそびの王国」など自然を生かした遊び場が充実。",
+    review:"駐車場無料・広大な敷地で一日中遊べると家族連れに人気。",
+    rating:"", link:"https://www.sandabiyori.com/arimafuji-park-parking/" },
+  { id:90, pref:"兵庫県", name:"日岡山公園", addr:"兵庫県加古川市加古川町大野1682", icon:"flower", x:156.3, y:296.9,
+    parking:{free:true, text:"6カ所・計1,122台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"古墳群がある総合公園。野球場やテニスコート、芝生広場が整備されている。",
+    review:"無料で広い駐車場があり、加古川市民の憩いの場として人気。",
+    rating:"", link:"https://kako-navi.jp/spot/18930.html" },
+  { id:91, pref:"兵庫県", name:"高砂市総合運動公園", addr:"兵庫県高砂市米田町島526", icon:"net", x:145.0, y:297.7,
+    parking:{free:true, text:"無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"陸上競技場や野球場を備えた高砂市の総合スポーツ公園。",
+    review:"スポーツ大会からファミリーの運動まで幅広く利用される。",
+    rating:"", link:"https://www.e-harima-tourism.jp/spot/362/" },
+  { id:92, pref:"兵庫県", name:"淡路島公園", addr:"兵庫県淡路市楠本2865-4", icon:"rollerSlide", x:194.3, y:347.3,
+    parking:{free:true, text:"無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"淡路サービスエリアに直結する公園。無料の大型遊具が充実している。",
+    review:"サービスエリアから気軽に立ち寄れる無料遊具スポットとして人気。",
+    rating:"", link:"https://kankouawaji.com/awajishimapark/" },
+  { id:93, pref:"兵庫県", name:"淡路佐野運動公園", addr:"兵庫県淡路市佐野新島9-6", icon:"net", x:180.5, y:395.5,
+    parking:{free:true, text:"無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"陸上競技場やテニスコートを備えた淡路島南部のスポーツ公園。",
+    review:"合宿や大会でも使われる淡路島のスポーツ拠点。",
+    rating:"", link:"https://jl-db.nfaj.go.jp/location/280500016/" },
+  { id:94, pref:"兵庫県", name:"吉川総合公園", addr:"兵庫県三木市吉川町西奥549-481", icon:"slide", x:224.7, y:267.8,
+    parking:{free:true, text:"無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"「こども広場」に3種類の滑り台やアスレチック遊具。体育館やテニスコートも併設。",
+    review:"地域のスポーツ・遊び拠点として利用される複合施設。",
+    rating:"", link:"https://www.couleur-harima.com/leisure/yokawasougokouen/index.html" },
+  { id:95, pref:"兵庫県", name:"丸山総合公園", addr:"兵庫県加西市北条町西高室591-15", icon:"mound", x:156.0, y:252.1,
+    parking:{free:false, text:"50台・有料"}, area:"情報未確認",
+    hours:"情報未確認", closed:"情報未確認",
+    equip:"北播磨エリアの総合公園。スポーツ施設と広場を備える。",
+    review:"加西市の地域スポーツ拠点として利用されている。",
+    rating:"", link:"https://kita-harima.jp/spot/305/" },
+  { id:96, pref:"大阪府", name:"光明池緑地", addr:"大阪府和泉市光明台1-44-8", icon:"net", x:290.2, y:389.3,
+    parking:{free:true, text:"無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"運動場を中心とした緑地。広場でのびのび遊べる。",
+    review:"地域のスポーツ・遊びの拠点として利用される。",
+    rating:"", link:"https://izumi-park.jp/annai/%E5%85%89%E6%98%8E%E6%B1%A0%E7%B7%91%E5%9C%B0/" },
+  { id:97, pref:"大阪府", name:"淀川河川公園（鳥飼地区）", addr:"大阪府摂津市鳥飼", icon:"water", x:318.3, y:295.0,
+    parking:{free:true, text:"136台・無料（開放時間内のみ）"}, area:"情報未確認",
+    hours:"入園自由（駐車場は時間制限あり）", closed:"なし",
+    equip:"淀川河川敷に沿って広がる公園。広い芝生とサイクリングロードがある。",
+    review:"川沿いでのびのび遊べると家族連れに人気。",
+    rating:"", link:"https://www.yodogawa-park.jp/annai/torisimo/" },
+  { id:98, pref:"兵庫県", name:"芦屋市総合公園", addr:"兵庫県芦屋市陽光町1-1", icon:"net", x:258.0, y:306.5,
+    parking:{free:false, text:"有料（最初30分無料、以降30分100円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"陸上競技場やテニスコートを備える芦屋市の総合公園。",
+    review:"スポーツ施設が充実した芦屋市民の憩いの場。",
+    rating:"", link:"https://parkful.net/2016/03/ashiyashi-sogo-park/" },
+  { id:99, pref:"兵庫県", name:"塩瀬中央公園", addr:"兵庫県西宮市生瀬町", icon:"rollerSlide", x:267.0, y:286.4,
+    parking:{free:true, text:"計225台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"長いローラー滑り台が人気の「冒険広場」がある。体育館やテニスコートも併設。",
+    review:"駐車場無料で穴場のローラー滑り台スポットとして人気。",
+    rating:"", link:"https://funkobe.com/shiose-chuo-park/" },
+  { id:100, pref:"兵庫県", name:"石ケ谷公園", addr:"兵庫県明石市大久保町松陰1126-47", icon:"slide", x:189.2, y:318.4,
+    parking:{free:true, text:"350台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"広い敷地に遊具広場やグラウンドを備える明石市の公園。",
+    review:"無料駐車場が広く、気軽に利用できると好評。",
+    rating:"", link:"https://e-akashi.jp/isi-access/" },
+  { id:101, pref:"兵庫県", name:"加古川河川敷緑地（河原地区）", addr:"兵庫県加古川市加古川町河原", icon:"water", x:158.1, y:300.1,
+    parking:{free:true, text:"上流97台・下流49台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"加古川沿いに広がる緑地。河川敷でのびのび遊べ、散策路も整備されている。",
+    review:"川遊びと散歩が楽しめる加古川市の憩いの場。",
+    rating:"", link:"https://www.city.kakogawa.lg.jp/soshikikarasagasu/kensetsubu/koenryokuchika/kakogawashinoshisetsu/kouensyoukai/1452043839154.html" },
+  { id:102, pref:"兵庫県", name:"権現総合公園", addr:"兵庫県加古川市平荘町中山1003-1", icon:"rollerSlide", x:153.4, y:291.0,
+    parking:{free:true, text:"東25台・西30台・臨時20台・無料"}, area:"情報未確認",
+    hours:"8:30–17:30（高速道路側駐車場9:00–17:00）", closed:"情報未確認",
+    equip:"2025年3月開園。市内最大級という大型複合遊具のほか、幼児向け遊具や古墳・自然散策路もある。",
+    review:"新しくできたばかりで大型遊具が充実していると話題の公園。",
+    rating:"", link:"https://kako-navi.jp/spot/27747.html" },
+  { id:103, pref:"兵庫県", name:"北播磨余暇村公園", addr:"兵庫県多可郡多可町中区牧野817-41", icon:"mound", x:188.1, y:220.4,
+    parking:{free:true, text:"普通車280台・大型7台・無料"}, area:"情報未確認",
+    hours:"8:30–17:30", closed:"毎週火曜（祝日除く）、年末年始（12/29–1/3）",
+    equip:"キャンプ場やアスレチックを備えた北播磨の自然公園。",
+    review:"無料で一日遊べる北播磨エリアの定番スポット。",
+    rating:"", link:"https://www.kita-harima.jp/spot/473/" },
+  { id:104, pref:"兵庫県", name:"兵庫県立 丹波並木道中央公園", addr:"兵庫県丹波篠山市西古佐90", icon:"flower", x:240.3, y:217.4,
+    parking:{free:true, text:"普通車110台・バス5台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"桜並木が美しい丹波地域の中央公園。広い芝生広場と遊具がある。",
+    review:"桜の名所として知られる丹波篠山市の公園。",
+    rating:"", link:"https://tourism.sasayama.jp/namikimichipark/" },
+  { id:105, pref:"兵庫県", name:"淡路ふれあい公園", addr:"兵庫県南あわじ市広田広田1473-12", icon:"net", x:144.6, y:420.9,
+    parking:{free:true, text:"70台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"淡路島南部の自然公園。広場や遊具があり、のんびり過ごせる。",
+    review:"地元ファミリーに親しまれる南あわじ市の公園。",
+    rating:"", link:"https://www.city.minamiawaji.hyogo.jp/map/shisetsu-239.html" },
+  { id:106, pref:"京都府", name:"淀川河川公園（背割堤地区）", addr:"京都府八幡市八幡在応寺", icon:"flower", x:344.9, y:266.0,
+    parking:{free:false, text:"154台・有料（500〜1,600円、桜まつり期間は利用不可）"}, area:"情報未確認",
+    hours:"9:00–17:00", closed:"情報未確認",
+    equip:"木津川・宇治川・桂川の合流点に1.4kmにわたって続く桜並木。芝生広場も広い。",
+    review:"桜の名所として全国的にも有名な背割堤。",
+    rating:"", link:"https://www.yodogawa-park.jp/annai/sewaritei/" },
+  { id:107, pref:"奈良県", name:"大渕池公園", addr:"奈良県奈良市中山町西1", icon:"water", x:373.0, y:320.5,
+    parking:{free:true, text:"東地区37台・西地区29台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"大きな池を囲む公園。遊歩道やデッキがあり、散歩や野鳥観察が楽しめる。",
+    review:"奈良市内で気軽に自然と触れ合える公園。",
+    rating:"", link:"https://iko-yo.net/facilities/6858" },
+  { id:108, pref:"奈良県", name:"生駒山麓公園", addr:"奈良県生駒市俵口町2088", icon:"rollerSlide", x:344.7, y:317.9,
+    parking:{free:false, text:"500台・有料（520円、生駒市民は無料）"}, area:"情報未確認",
+    hours:"情報未確認", closed:"情報未確認",
+    equip:"アスレチックやローラー滑り台など自然を生かした遊具が充実する山麓公園。",
+    review:"アスレチックの種類が豊富で一日遊べると人気。",
+    rating:"", link:"https://ikoma36.jp/information/" },
+  { id:109, pref:"奈良県", name:"橿原運動公園", addr:"奈良県橿原市雲梯町323-2", icon:"net", x:366.5, y:370.7,
+    parking:{free:true, text:"無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"野球場やテニスコートのほか、「遊びの森」という遊具エリアがある総合運動公園。",
+    review:"スポーツ施設と遊び場を兼ね備えた橿原市の定番公園。",
+    rating:"", link:"https://kouen-kashi-sports.net/" },
+  { id:110, pref:"奈良県", name:"御所市民スポーツ公園", addr:"奈良県御所市朝町1337", icon:"net", x:353.4, y:381.3,
+    parking:{free:true, text:"85台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"人工芝グラウンドやテニスコートを備える御所市の総合スポーツ公園。",
+    review:"地域のスポーツ活動拠点として利用されている。",
+    rating:"", link:"https://www.city.gose.nara.jp/0000002777.html" },
+  { id:111, pref:"奈良県", name:"国営飛鳥歴史公園（石舞台地区）", addr:"奈良県高市郡明日香村島庄146", icon:"mound", x:370.8, y:376.0,
+    parking:{free:false, text:"無料14台＋有料150台（500円）"}, area:"情報未確認",
+    hours:"情報未確認", closed:"情報未確認",
+    equip:"石舞台古墳を中心とした歴史公園。広い芝生広場で遊べ、史跡散策も楽しめる。",
+    review:"歴史と自然を一緒に楽しめる明日香村の人気スポット。",
+    rating:"", link:"https://www.asuka-park.jp/area/ishibutai/" },
+  { id:112, pref:"兵庫県", name:"尼崎市記念公園", addr:"兵庫県尼崎市西長洲町1-4-1", icon:"net", x:281.7, y:307.3,
+    parking:{free:false, text:"260台・有料（1h無料、以降500円〜）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"野球場や陸上競技場を備える尼崎市の総合公園。広場で遊べるスペースもある。",
+    review:"スポーツ大会からファミリーの利用まで幅広く使われる公園。",
+    rating:"", link:"https://www.aspf.or.jp/park/" },
+  { id:113, pref:"兵庫県", name:"植村直己記念スポーツ公園", addr:"兵庫県豊岡市日高町野829", icon:"mound", x:144.6, y:111.7,
+    parking:{free:true, text:"200台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"冒険家・植村直己を記念した但馬地域の総合スポーツ公園。",
+    review:"但馬エリアのスポーツ・レジャー拠点として利用される。",
+    rating:"", link:"https://toyooka-tourism.com/spot/uemuranaomi-sports/" },
+  { id:114, pref:"兵庫県", name:"稲美中央公園", addr:"兵庫県加古郡稲美町国安1287-3", icon:"net", x:162.0, y:302.0,
+    parking:{free:true, text:"143台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"多目的グラウンドやテニスコートを備える稲美町の総合公園。",
+    review:"地域住民のスポーツ・交流拠点として利用される。",
+    rating:"", link:"https://www.town.hyogo-inami.lg.jp/0000000053.html" },
+  { id:115, pref:"兵庫県", name:"朝日山公園", addr:"兵庫県姫路市勝原区朝日谷601-1", icon:"mound", x:112.0, y:294.1,
+    parking:{free:true, text:"40台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"自然を生かした姫路市西部の公園。展望広場やハイキングコースがある。",
+    review:"無料駐車場があり、気軽に自然散策ができると好評。",
+    rating:"", link:"https://www.city.himeji.lg.jp/kanko/0000003018.html" },
+  { id:116, pref:"兵庫県", name:"香寺総合公園", addr:"兵庫県姫路市香寺町行重335", icon:"net", x:131.6, y:254.4,
+    parking:{free:true, text:"約240台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"広いグラウンドと遊具広場を備える姫路市北部の総合公園。",
+    review:"無料駐車場が広く、家族連れに使いやすいと評判。",
+    rating:"", link:"https://www.city.himeji.lg.jp/kanko/0000002930.html" },
+  { id:117, pref:"兵庫県", name:"兵庫県立 一庫公園", addr:"兵庫県川西市国崎字知明1-6", icon:"water", x:268.6, y:262.4,
+    parking:{free:true, text:"丘74台＋湖畔76台、計150台・無料（イベント時は一部有料）"}, area:"情報未確認",
+    hours:"9:00–17:00（5–8月は–18:00）", closed:"情報未確認",
+    equip:"一庫ダムの湖畔に広がる自然公園。水遊び施設や大型遊具もあり、自然観察も楽しめる。",
+    review:"水遊びと遊具が両方楽しめると家族連れに人気。",
+    rating:"", link:"https://www.hyogo-park.or.jp/hitokura/" },
+  { id:118, pref:"兵庫県", name:"三木山総合公園", addr:"兵庫県三木市福井2474-5", icon:"net", x:192.5, y:288.8,
+    parking:{free:true, text:"300台・無料"}, area:"情報未確認",
+    hours:"情報未確認", closed:"情報未確認",
+    equip:"スポーツ施設を主体とした三木市の総合公園。広場やグラウンドがある。",
+    review:"無料で広い駐車場が利用できる三木市のスポーツ拠点。",
+    rating:"", link:"https://miki-sports.jp/mikiyama_access/" },
+  { id:119, pref:"大阪府", name:"真田山公園", addr:"大阪府大阪市天王寺区真田山町5-70", icon:"slide", x:307.8, y:320.5,
+    parking:{free:false, text:"有料（プール駐車場、1h350円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"市民プールに隣接する公園。野球場や遊具広場がある。",
+    review:"大阪市内中心部で気軽に利用できる公園。",
+    rating:"", link:"https://osakapark.jp/sanadayama-koen/" },
+  { id:120, pref:"大阪府", name:"打上川治水緑地", addr:"大阪府寝屋川市太秦桜が丘25", icon:"water", x:331.7, y:296.7,
+    parking:{free:false, text:"153台・有料"}, area:"情報未確認",
+    hours:"24時間入園自由", closed:"なし",
+    equip:"治水緑地を活用した広い公園。桜の名所としても知られ、遊具広場もある。",
+    review:"春は桜が美しいと評判の寝屋川市の公園。",
+    rating:"", link:"https://www.city.neyagawa.osaka.jp/organization_list/keieikikaku/kikakusanka/cirypromotion/location/park_leisure/20102.html" },
+  { id:121, pref:"兵庫県", name:"末広中央公園", addr:"兵庫県宝塚市末広町3-3", icon:"pyramid", x:268.8, y:288.6,
+    parking:{free:false, text:"120台・有料（最初60分無料、以降30分100円）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"宝塚市役所前にある大型公園。3階建て構造の複合遊具を含む大小3つの遊具があり、乳幼児から小学生まで楽しめる。",
+    review:"市街地にありながら広い敷地で、宝塚市内でも屈指の人気公園。",
+    rating:"", link:"https://parkful.net/2016/08/suehiro-chuou-park/" },
+  { id:122, pref:"兵庫県", name:"兵庫県立 宝塚西谷の森公園", addr:"兵庫県宝塚市玉瀬字柳谷", icon:"mound", x:246.9, y:270.3,
+    parking:{free:true, text:"143台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"里山の自然を生かした公園。ハイキングコースや棚田風景が広がり、自然体験が楽しめる。",
+    review:"宝塚随一の自然派スポットとして癒しを求める家族に人気。",
+    rating:"", link:"https://www.hyogo-park.or.jp/nishitaninomori/" },
+  { id:123, pref:"兵庫県", name:"西宮浜総合公園（みやっこキッズダム）", addr:"兵庫県西宮市西宮浜4丁目", icon:"pyramid", x:265.8, y:315.8,
+    parking:{free:false, text:"北170台・南169台・有料"}, area:"情報未確認",
+    hours:"24時間入園自由", closed:"なし",
+    equip:"築山の高低差を生かした巨大なお城型複合遊具「みやっこキッズダム」。児童・幼児・乳幼児の3ゾーンに分かれている。",
+    review:"年齢別エリアで小さな子から安心して遊べると評判。",
+    rating:"", link:"https://kids.rurubu.jp/article/113327/" },
+  { id:124, pref:"兵庫県", name:"兵庫県立 尼崎の森中央緑地", addr:"兵庫県尼崎市扶桑町", icon:"mound", x:280.1, y:320.4,
+    parking:{free:false, text:"約1,000台・有料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"尼崎最大級の自然公園。芝生広場や大型遊具、自然体験エリアなど多彩なゾーンがある。",
+    review:"臨海部ながら緑豊かで、尼崎市内で規模の大きい公園として人気。",
+    rating:"", link:"https://www.hyogo-park.or.jp/amagasakinomori/" },
+  { id:125, pref:"兵庫県", name:"元浜緑地", addr:"兵庫県尼崎市元浜町", icon:"water", x:284.2, y:316.6,
+    parking:{free:false, text:"普通車59台・大型4台・有料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"東側に大型のロングスライダーを含む多彩な遊具。無料の水遊び場もある。",
+    review:"無料の水遊び場と大型遊具が一緒に楽しめると夏場に人気。",
+    rating:"", link:"https://funkobe.com/motohama-ryokuchi-park/" },
+  { id:126, pref:"兵庫県", name:"芦屋海浜公園 わんぱーく", addr:"兵庫県芦屋市浜町", icon:"net", x:259.7, y:315.7,
+    parking:{free:true, text:"約1,000台・無料（夏季の特定期間は有料）"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"広大な芝生広場に、子どもの年齢に応じた複数のコンビネーション遊具が設置されている。",
+    review:"遠足やイベントにも使われる芦屋浜の人気スポット。",
+    rating:"", link:"https://ashikan.jp/play/ashiyakaihinkouen/" },
+  { id:127, pref:"兵庫県", name:"下河原緑地", addr:"兵庫県伊丹市森本", icon:"zip", x:281.7, y:292.8,
+    parking:{free:true, text:"9台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"伊丹空港に隣接し、飛行機をモチーフにした遊具がある緑地。",
+    review:"飛行機好きの子どもに人気の伊丹スカイパーク近くの穴場公園。",
+    rating:"", link:"https://kids.rurubu.jp/article/118713/" },
+  { id:128, pref:"兵庫県", name:"駒ケ谷運動公園", addr:"兵庫県三田市ゆりのき台", icon:"net", x:242.5, y:254.4,
+    parking:{free:true, text:"無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"体育館や野球場、テニスコート、芝生広場を備える三田市の総合公園。",
+    review:"スポーツ施設が充実したニュータウン内の公園。",
+    rating:"", link:"https://sanda-parks.jp/komagadani/" },
+  { id:129, pref:"兵庫県", name:"小野公園", addr:"兵庫県三田市小野", icon:"slide", x:245.8, y:258.4,
+    parking:{free:true, text:"59台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"遊具広場を備える三田市の都市公園。",
+    review:"地域の子どもたちの日常的な遊び場として利用されている。",
+    rating:"", link:"https://sanda-parks.jp/ono/" },
+  { id:130, pref:"兵庫県", name:"三田谷公園", addr:"兵庫県三田市三田町", icon:"slide", x:243.6, y:257.1,
+    parking:{free:true, text:"28台・無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"遊具広場を備える三田市中心部の公園。",
+    review:"市街地で気軽に立ち寄れる公園として利用されている。",
+    rating:"", link:"https://sanda-parks.jp/sandadani/" },
+  { id:131, pref:"兵庫県", name:"城山公園", addr:"兵庫県三田市屋敷町", icon:"mound", x:242.1, y:256.3,
+    parking:{free:true, text:"無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"三田城跡を生かした歴史と自然を感じられる公園。",
+    review:"歴史散策とあわせて楽しめる三田市中心部の公園。",
+    rating:"", link:"https://sanda-parks.jp/shiroyama/" },
+  { id:132, pref:"兵庫県", name:"中央公園", addr:"兵庫県三田市対中町", icon:"flower", x:239.9, y:255.0,
+    parking:{free:true, text:"無料"}, area:"情報未確認",
+    hours:"入園自由", closed:"なし",
+    equip:"三田市中心部にある市民公園。四季の花や広場がある。",
+    review:"日常使いの公園として三田市民に親しまれている。",
+    rating:"", link:"https://sanda-parks.jp/chuo/" }
+];
+
+/* Prefecture outlines: simplified from 地球地図日本 (GSI) administrative-boundary polygons,
+   projected with the same equirectangular formula as the park pins above. */
+const GEO_PATHS = {
+  "京都府": "M200.5,93.9 L191.6,94.5 L183.6,100.4 L176.5,100.5 L173.8,91.9 L160.8,80.5 L164.7,72.2 L163.6,62.0 L166.8,61.8 L167.1,65.0 L178.4,64.0 L185.1,60.0 L189.2,53.0 L197.3,53.7 L205.7,48.8 L210.2,44.7 L211.1,40.4 L222.6,35.7 L223.8,37.6 L237.0,34.1 L241.0,30.0 L247.5,35.2 L248.4,39.2 L251.9,39.7 L252.1,42.9 L254.9,44.1 L254.7,49.6 L259.5,52.4 L258.4,60.8 L255.1,60.3 L255.0,57.4 L250.8,59.5 L245.6,71.9 L234.4,85.0 L234.5,93.7 L237.7,92.5 L236.9,88.3 L241.1,85.9 L242.0,81.1 L244.9,81.5 L247.9,77.7 L247.0,85.2 L252.1,87.7 L247.7,89.9 L245.7,87.6 L244.0,91.7 L245.6,94.3 L250.6,94.8 L255.2,99.7 L259.9,100.5 L262.8,97.0 L264.3,99.3 L261.3,116.7 L267.9,110.3 L267.9,105.4 L274.7,106.2 L273.3,109.9 L278.9,109.4 L278.7,99.8 L275.4,102.9 L267.4,102.7 L268.3,98.4 L265.5,94.8 L266.9,90.1 L268.3,92.4 L274.7,87.6 L285.2,86.2 L286.8,79.8 L292.9,76.4 L289.9,82.9 L290.8,86.0 L298.3,88.5 L292.5,91.3 L290.1,97.6 L295.8,102.5 L295.9,106.7 L292.3,112.4 L300.5,120.2 L300.3,123.6 L306.7,124.8 L307.4,135.6 L332.1,139.0 L344.9,145.1 L348.8,142.0 L359.6,141.8 L358.6,144.9 L368.5,152.4 L373.3,163.0 L379.1,159.5 L372.8,177.6 L376.0,191.0 L378.6,193.8 L374.2,211.9 L374.2,220.3 L369.8,223.7 L373.8,230.0 L374.0,232.5 L370.8,232.5 L374.1,235.1 L372.3,238.3 L377.2,238.3 L377.9,243.7 L383.5,249.8 L380.9,264.4 L387.8,270.0 L397.1,264.2 L398.2,275.1 L401.6,274.6 L403.6,278.6 L411.1,277.5 L411.0,281.3 L416.1,283.7 L412.3,288.6 L417.3,294.4 L416.2,300.1 L422.0,305.1 L419.3,305.7 L416.2,313.6 L406.9,311.2 L404.6,304.4 L400.2,302.6 L393.8,304.6 L393.8,300.0 L387.9,306.9 L386.1,312.9 L377.1,313.7 L356.7,308.0 L350.9,294.6 L354.5,287.6 L346.9,276.5 L343.8,276.1 L339.3,262.7 L333.6,259.9 L333.9,256.3 L329.7,253.0 L323.0,255.0 L326.8,247.2 L325.8,243.5 L317.2,243.4 L318.3,247.6 L315.1,248.2 L313.6,252.3 L318.6,252.6 L318.8,256.1 L310.3,258.3 L304.1,250.8 L297.1,249.3 L298.5,238.1 L287.3,233.7 L275.6,233.3 L272.7,221.8 L280.2,212.3 L277.0,210.3 L277.2,201.9 L267.2,200.1 L266.5,196.3 L253.9,197.6 L255.5,191.0 L252.0,189.1 L243.1,189.0 L241.3,192.6 L237.4,193.4 L233.1,190.5 L235.3,182.3 L226.3,176.2 L228.6,172.5 L226.9,167.2 L216.2,165.6 L207.2,173.2 L204.8,166.2 L194.6,164.6 L192.2,159.0 L176.3,153.7 L174.7,139.6 L178.1,128.3 L183.5,127.8 L190.2,133.8 L196.6,131.7 L198.8,127.7 L203.0,128.3 L203.2,116.7 L200.3,110.3 L201.5,105.5 L199.6,104.5 L202.2,101.5 L200.5,93.9 Z",
+  "滋賀県": "M442.6,51.5 L450.2,49.9 L456.3,55.6 L471.0,61.2 L472.8,72.0 L480.3,73.1 L478.6,75.9 L480.3,80.9 L479.1,91.4 L483.5,90.7 L485.2,94.3 L490.9,88.0 L493.7,95.1 L497.1,95.9 L498.2,100.2 L494.2,107.0 L497.8,111.9 L501.3,112.6 L502.6,117.6 L499.5,125.3 L506.6,133.0 L499.9,137.8 L499.1,142.0 L501.5,144.3 L495.0,159.9 L496.3,167.9 L492.2,171.8 L500.3,178.4 L498.8,186.5 L508.4,192.1 L508.7,195.8 L504.8,201.5 L507.4,203.3 L504.8,214.1 L506.0,218.7 L501.0,223.1 L502.3,228.3 L500.1,241.3 L496.0,248.7 L491.1,251.3 L489.5,261.1 L464.4,273.5 L451.7,269.6 L449.0,265.9 L438.5,266.8 L434.1,261.9 L428.9,264.9 L428.5,268.2 L436.5,269.5 L437.5,272.5 L428.6,278.9 L429.6,285.1 L415.7,291.2 L412.3,288.6 L415.9,283.0 L411.0,281.3 L411.1,277.5 L403.6,278.6 L401.6,274.6 L398.2,275.1 L397.1,264.2 L387.8,270.0 L380.9,264.4 L383.5,249.8 L377.9,243.7 L377.2,238.3 L372.3,238.3 L374.1,235.1 L370.8,232.5 L374.0,232.5 L373.8,230.0 L369.8,223.7 L374.2,220.3 L374.2,211.9 L378.6,195.4 L372.8,177.6 L379.6,161.1 L373.3,163.0 L368.5,152.4 L358.6,144.9 L364.4,133.7 L368.0,134.1 L369.8,126.7 L378.0,127.2 L379.9,131.5 L386.2,129.2 L386.7,125.0 L391.1,121.9 L391.8,111.8 L396.9,98.4 L406.0,107.3 L411.3,106.0 L415.7,96.0 L420.7,94.6 L425.2,96.8 L428.1,93.1 L432.9,96.2 L434.6,81.9 L446.7,86.5 L448.4,78.4 L442.1,60.8 L439.2,58.9 L442.6,51.5 Z",
+  "和歌山県": "M307.5,407.4 L318.5,400.7 L334.0,398.9 L338.9,426.0 L340.9,428.9 L343.1,426.8 L346.5,428.5 L351.1,438.4 L346.3,445.2 L339.4,441.2 L333.3,442.4 L330.4,446.4 L332.7,450.4 L327.7,458.0 L320.9,460.8 L317.9,469.8 L311.2,474.4 L309.8,480.4 L318.6,485.2 L322.8,491.9 L322.0,497.2 L327.7,497.7 L330.7,502.7 L330.9,513.3 L326.8,512.3 L325.0,523.3 L322.9,524.5 L327.7,527.2 L327.0,534.1 L333.3,532.8 L336.3,527.2 L341.8,525.6 L350.8,526.3 L356.9,530.6 L366.8,527.8 L368.3,524.9 L376.9,527.8 L379.0,533.8 L378.7,548.3 L386.1,552.6 L389.8,561.9 L396.3,564.3 L397.2,570.2 L404.8,573.3 L403.7,571.0 L406.4,570.0 L412.5,573.3 L407.5,583.5 L404.3,585.2 L404.4,589.6 L407.5,589.9 L405.5,593.0 L404.6,590.8 L396.0,595.3 L399.6,597.3 L399.5,600.9 L397.9,598.6 L398.0,601.4 L393.9,604.7 L395.5,607.7 L397.7,604.9 L398.1,608.4 L401.5,607.3 L400.8,611.1 L393.2,612.3 L386.1,617.6 L393.4,616.7 L383.4,624.9 L382.1,623.6 L366.1,632.6 L362.6,640.3 L366.0,646.9 L364.5,646.1 L363.7,648.8 L359.9,646.4 L358.3,650.0 L356.1,648.8 L355.8,645.3 L361.3,641.6 L360.9,638.4 L359.2,639.5 L357.7,636.6 L346.5,638.2 L344.9,634.1 L336.8,634.9 L329.6,630.1 L321.1,630.4 L321.3,632.9 L316.6,628.0 L303.6,625.7 L298.5,619.1 L289.6,619.4 L289.8,615.4 L277.7,608.4 L278.0,595.6 L264.3,587.4 L267.2,584.2 L265.4,581.0 L269.6,580.8 L270.7,585.6 L274.5,583.9 L273.4,582.3 L278.5,578.7 L279.4,574.1 L275.8,575.0 L273.3,571.2 L269.5,572.6 L269.5,567.9 L263.8,568.5 L260.1,561.2 L257.0,562.5 L251.6,557.9 L243.5,558.0 L243.6,553.5 L239.6,549.4 L237.7,550.8 L232.9,548.0 L223.8,531.0 L217.1,528.4 L204.9,532.0 L206.5,528.1 L205.1,526.0 L210.6,523.7 L207.3,518.5 L217.4,510.9 L214.4,509.1 L210.0,511.8 L208.6,511.1 L211.0,508.5 L207.2,506.5 L211.3,505.7 L212.6,502.2 L216.6,502.9 L225.1,498.5 L222.7,495.3 L230.2,491.8 L227.0,487.9 L224.3,488.3 L222.0,483.2 L209.6,480.8 L212.1,480.8 L213.6,475.4 L216.7,474.3 L217.6,468.5 L223.9,470.8 L219.5,464.3 L229.1,465.0 L237.9,460.1 L232.5,461.0 L234.4,458.4 L232.2,458.3 L231.5,450.9 L229.8,451.3 L231.0,453.9 L228.7,450.8 L223.3,450.8 L222.2,447.1 L225.0,447.3 L222.5,440.7 L214.2,437.9 L220.3,440.2 L218.6,436.0 L205.8,430.6 L208.4,427.0 L208.5,419.9 L214.9,418.2 L213.5,422.0 L216.7,428.3 L224.7,425.3 L225.8,427.8 L237.0,423.9 L237.6,418.8 L241.4,420.7 L253.9,416.2 L256.2,421.1 L258.5,417.6 L264.3,416.5 L266.0,411.6 L278.9,412.9 L281.4,409.9 L293.9,408.3 L298.0,404.4 L301.9,411.3 L307.5,407.4 Z M391.6,507.5 L404.7,503.7 L411.4,498.4 L408.9,500.2 L412.4,509.2 L409.8,512.0 L404.9,509.1 L403.2,519.0 L394.3,515.8 L392.1,520.8 L395.3,522.2 L388.5,520.2 L386.8,513.9 L391.6,507.5 Z M384.0,524.2 L384.7,530.2 L386.5,531.6 L386.6,528.3 L388.5,531.0 L387.3,534.9 L384.2,534.0 L382.7,536.8 L384.4,532.3 L379.7,530.1 L379.4,527.1 L380.9,521.1 L384.0,524.2 Z M373.4,645.8 L371.2,642.6 L366.1,642.2 L366.8,639.4 L368.9,637.4 L380.1,639.6 L378.1,642.9 L372.9,643.9 L373.4,645.8 Z",
+  "大阪府": "M273.1,224.0 L275.6,233.3 L287.3,233.7 L299.4,238.8 L297.1,249.3 L304.1,250.8 L310.3,258.3 L318.8,256.1 L318.6,252.6 L313.6,252.3 L315.1,248.2 L318.3,247.6 L317.2,243.4 L325.8,243.5 L326.8,247.2 L323.0,255.0 L332.3,254.5 L333.6,259.9 L340.9,265.6 L343.8,276.1 L346.9,276.5 L354.5,287.6 L350.9,294.6 L347.1,293.7 L346.8,301.2 L344.0,303.7 L345.6,308.9 L338.8,314.8 L339.9,320.7 L333.9,339.3 L339.4,341.3 L340.7,345.6 L334.0,356.2 L339.7,361.6 L341.8,381.1 L337.1,388.2 L340.4,392.3 L334.9,398.5 L318.5,400.7 L302.9,411.3 L298.0,404.4 L293.9,408.3 L281.4,409.9 L278.9,412.9 L266.0,411.6 L264.3,416.5 L258.5,417.6 L256.2,421.1 L253.9,416.2 L241.4,420.7 L237.6,418.8 L237.0,423.9 L232.6,426.4 L225.8,427.8 L224.7,425.3 L216.7,428.3 L213.5,422.0 L215.5,418.9 L212.8,417.1 L220.8,414.1 L222.9,416.3 L225.7,412.7 L239.9,409.1 L256.5,390.5 L261.8,389.2 L261.5,386.4 L262.6,388.1 L263.1,384.7 L264.4,385.9 L269.0,379.2 L269.3,381.1 L271.0,378.3 L269.5,377.9 L273.4,375.6 L272.1,373.2 L274.3,375.1 L273.1,367.4 L274.8,365.2 L272.3,363.6 L274.8,359.6 L273.3,362.1 L275.1,364.1 L275.6,361.3 L277.3,366.6 L286.4,359.6 L289.4,353.0 L281.8,352.0 L279.9,341.7 L282.9,343.3 L284.0,349.7 L285.9,349.4 L285.2,344.4 L290.9,350.9 L290.4,346.0 L293.9,345.7 L290.2,345.1 L293.1,345.0 L292.7,343.0 L285.0,343.4 L284.6,340.3 L289.4,342.1 L284.6,336.6 L286.6,338.2 L288.5,334.7 L289.7,337.8 L290.5,329.7 L283.7,327.6 L283.9,325.7 L282.6,328.0 L285.2,323.7 L281.3,322.6 L284.7,317.0 L282.5,318.7 L280.1,317.0 L289.7,310.0 L289.7,306.4 L292.5,306.4 L288.5,291.2 L282.9,283.6 L284.7,279.1 L283.1,275.0 L286.0,274.1 L289.2,262.8 L286.1,264.4 L283.4,260.0 L293.6,257.1 L294.0,254.8 L277.8,251.4 L275.7,247.7 L270.8,248.0 L267.6,245.1 L270.6,240.6 L269.5,229.6 L264.3,226.8 L268.4,222.5 L273.1,224.0 Z M242.4,382.4 L245.0,379.9 L247.3,382.1 L243.2,386.1 L247.1,382.9 L250.0,384.5 L241.9,391.0 L240.0,388.7 L242.2,386.3 L236.3,387.0 L242.4,382.4 Z",
+  "兵庫県": "M163.6,62.0 L164.7,72.2 L160.8,80.5 L173.8,91.9 L176.5,100.5 L183.6,100.4 L191.6,94.5 L200.1,93.3 L202.2,101.5 L199.6,104.5 L201.5,105.5 L200.3,110.3 L203.2,116.7 L203.0,128.3 L198.8,127.7 L196.6,131.7 L190.2,133.8 L183.5,127.8 L178.1,128.3 L174.7,139.6 L176.3,153.7 L192.2,159.0 L194.6,164.6 L204.8,166.2 L207.2,173.2 L216.2,165.6 L226.9,167.2 L228.6,172.5 L226.3,176.2 L235.3,182.3 L233.1,190.5 L237.4,193.4 L241.3,192.6 L243.1,189.0 L252.0,189.1 L255.5,191.0 L253.9,197.6 L266.5,196.3 L267.2,200.1 L277.2,201.9 L277.0,210.3 L280.2,212.3 L279.3,215.8 L274.3,218.8 L273.1,224.0 L268.4,222.5 L264.3,226.8 L269.5,229.6 L270.6,240.6 L267.6,245.1 L270.8,248.0 L275.7,247.7 L277.8,251.4 L288.6,252.0 L294.1,255.7 L283.4,260.0 L286.1,264.4 L289.2,262.8 L286.0,274.1 L283.1,275.0 L284.7,279.1 L282.9,283.6 L288.5,291.2 L292.5,306.4 L289.7,306.4 L289.7,310.0 L277.8,320.5 L273.8,320.9 L277.8,320.0 L279.8,315.4 L273.2,320.3 L273.8,317.0 L271.5,318.3 L269.5,316.1 L271.5,313.6 L262.6,308.4 L262.9,310.5 L253.8,311.9 L255.1,314.2 L242.1,315.2 L244.3,317.0 L240.1,316.4 L236.5,320.9 L233.8,319.0 L232.1,321.3 L233.5,322.9 L231.1,323.1 L233.2,324.0 L231.1,324.8 L232.3,328.6 L205.4,334.9 L196.5,330.2 L185.0,329.4 L159.3,309.8 L154.7,313.5 L150.9,310.4 L151.2,304.0 L148.4,306.5 L146.4,302.8 L139.6,301.5 L141.4,299.4 L137.4,297.2 L127.4,294.7 L124.5,296.4 L124.0,294.6 L119.6,297.3 L119.4,292.9 L116.3,296.6 L117.5,291.8 L115.3,297.4 L112.3,296.0 L114.9,293.2 L110.3,293.1 L110.6,296.9 L107.9,297.3 L106.5,294.2 L104.0,296.5 L106.0,297.7 L101.9,296.5 L102.4,298.9 L99.1,299.9 L99.0,295.9 L97.8,299.2 L89.8,293.4 L84.4,299.0 L83.8,295.5 L78.0,300.6 L77.0,293.0 L78.9,292.5 L76.3,286.6 L74.2,294.0 L75.7,298.0 L72.9,301.0 L74.0,297.4 L68.5,298.3 L69.2,302.5 L64.2,307.9 L59.4,306.1 L58.6,308.3 L52.9,301.7 L54.0,304.5 L48.8,304.9 L44.8,309.5 L43.2,304.5 L47.6,297.2 L43.6,293.9 L43.8,288.4 L37.5,281.5 L32.2,281.7 L30.0,275.2 L32.1,266.3 L39.0,260.4 L30.3,252.4 L34.9,245.7 L33.7,240.5 L37.2,237.0 L32.8,234.6 L33.0,230.2 L36.5,225.9 L43.7,224.5 L44.2,214.0 L50.8,212.1 L54.6,197.5 L63.7,196.9 L64.4,186.7 L58.1,184.5 L58.7,176.8 L62.4,172.2 L69.4,175.3 L75.5,173.4 L86.9,162.6 L86.8,154.8 L84.2,149.9 L86.6,142.4 L77.7,136.0 L79.3,123.5 L70.6,118.9 L68.5,102.9 L64.6,99.7 L67.4,92.7 L66.5,87.2 L63.2,85.7 L62.6,79.1 L55.3,73.5 L68.7,72.0 L70.4,67.9 L73.0,69.7 L91.7,58.9 L96.3,63.9 L105.0,61.8 L110.2,67.0 L117.9,60.0 L119.7,60.6 L117.9,62.0 L118.9,64.6 L124.4,60.2 L128.0,63.3 L129.3,60.1 L139.5,61.0 L141.1,57.6 L142.2,61.7 L148.8,58.9 L157.1,62.7 L157.8,66.1 L160.3,61.8 L163.6,62.0 Z M239.7,328.4 L236.5,326.0 L236.3,322.2 L240.3,319.8 L239.8,322.5 L242.9,322.2 L240.5,323.9 L243.8,324.5 L242.1,326.4 L244.4,325.5 L245.8,328.3 L239.7,328.4 Z M146.2,387.3 L152.9,376.2 L156.7,376.8 L166.3,361.8 L177.9,355.2 L188.7,340.9 L193.0,339.3 L196.9,344.1 L198.0,347.9 L191.3,356.1 L187.9,367.2 L169.6,389.7 L169.7,409.2 L173.8,411.3 L175.5,418.2 L182.6,427.0 L182.0,429.6 L158.0,439.9 L148.0,447.5 L133.6,450.3 L133.8,445.6 L127.2,441.8 L131.8,436.4 L131.9,432.9 L127.5,436.4 L123.1,434.6 L118.0,436.4 L121.7,432.3 L117.3,422.4 L124.2,412.9 L128.6,415.4 L133.6,413.1 L137.7,401.1 L146.2,387.3 Z",
+  "奈良県": "M347.3,293.7 L350.9,294.6 L356.7,308.0 L377.1,313.7 L386.1,312.9 L387.9,306.9 L393.8,300.0 L393.8,304.6 L400.2,302.6 L404.6,304.4 L406.9,311.2 L411.2,310.7 L413.0,313.2 L416.2,313.6 L419.3,305.7 L422.0,305.1 L425.2,311.6 L421.6,313.9 L426.2,315.9 L428.6,321.5 L423.8,327.9 L418.8,324.9 L425.8,332.0 L420.1,341.6 L420.8,346.9 L428.3,352.4 L434.1,353.3 L434.8,355.9 L440.1,352.0 L443.8,352.6 L447.3,359.1 L446.3,362.8 L457.1,360.7 L456.7,367.2 L459.8,369.6 L454.8,381.7 L430.8,385.2 L424.9,396.2 L428.7,400.2 L432.1,411.3 L438.1,416.7 L430.6,420.7 L438.5,433.7 L434.0,439.6 L435.3,444.1 L430.3,448.5 L433.6,451.5 L434.8,458.1 L431.5,468.8 L432.4,475.0 L435.7,478.5 L430.2,478.4 L430.1,487.6 L432.5,493.5 L419.5,489.5 L414.0,490.7 L406.7,502.3 L397.2,506.8 L394.1,505.2 L386.8,513.9 L390.1,521.8 L386.8,521.4 L387.0,525.1 L380.7,521.4 L379.7,530.1 L384.4,532.3 L382.1,537.5 L376.9,527.8 L368.3,524.9 L366.8,527.8 L356.9,530.6 L350.8,526.3 L341.8,525.6 L336.3,527.2 L333.3,532.8 L327.0,534.1 L327.7,527.2 L322.9,524.5 L325.0,523.3 L326.8,512.3 L330.9,513.3 L330.7,502.7 L327.7,497.7 L322.0,497.2 L322.8,491.9 L318.6,485.2 L311.4,473.8 L317.9,469.8 L320.9,460.8 L327.7,458.0 L332.7,450.4 L330.4,446.4 L333.3,442.4 L339.4,441.2 L346.3,445.2 L351.2,439.9 L348.0,430.1 L343.1,426.8 L340.9,428.9 L338.9,426.0 L334.0,398.9 L339.4,394.6 L340.4,392.3 L337.1,388.2 L341.8,381.1 L339.7,361.6 L334.0,356.2 L340.7,345.6 L339.4,341.3 L333.9,339.3 L339.9,320.7 L338.8,314.8 L345.6,308.9 L344.0,303.7 L346.8,301.2 L347.3,293.7 Z"
+};
+
+const LAKE_BIWA = { cx:423.0, cy:176.4, rx:39.1, ry:59.4 };
+const CITIES = [
+  { name:"大阪", x:301.7, y:316.9 },
+  { name:"京都", x:359.6, y:232.9 },
+  { name:"神戸", x:235.0, y:317.8 },
+  { name:"奈良", x:367.5, y:319.2 },
+  { name:"大津", x:381.4, y:234.7 },
+  { name:"和歌山", x:228.9, y:440.5 }
+];
+
+const PREF_ORDER = ["大阪府","兵庫県","京都府","奈良県","滋賀県","和歌山県"];
+
+/* Sub-region of each prefecture, inferred from the city/ward named in the address
+   (not a stored field, so it's always consistent with addr). First matching rule wins. */
+const REGION_RULES = {
+  "大阪府": [
+    { region:"大阪市内", test:a => a.includes("大阪市") },
+    { region:"北摂", test:a => /豊中市|吹田市|茨木市|高槻市|箕面市|池田市|摂津市|島本町/.test(a) },
+    { region:"泉州", test:a => /堺市|岸和田市|貝塚市|泉佐野市|泉南市|阪南市|高石市|和泉市|忠岡町|熊取町|田尻町|岬町/.test(a) },
+    { region:"北河内・中河内", test:a => /東大阪市|八尾市|柏原市|大東市|四條畷市|交野市|寝屋川市|門真市|守口市|枚方市|松原市|藤井寺市/.test(a) },
+    { region:"南河内", test:a => /富田林市|河内長野市|羽曳野市|太子町|河南町|千早赤阪村/.test(a) }
+  ],
+  "兵庫県": [
+    { region:"神戸", test:a => a.includes("神戸市") },
+    { region:"阪神", test:a => /西宮市|伊丹市|尼崎市|宝塚市|川西市|三田市|芦屋市/.test(a) },
+    { region:"播磨", test:a => /姫路市|明石市|加古川市|高砂市|三木市|小野市|加西市|赤穂市|加東市|西脇市|たつの市|稲美町|播磨町|多可町|市川町|福崎町|神河町|宍粟市/.test(a) },
+    { region:"丹波", test:a => /丹波篠山市|丹波市/.test(a) },
+    { region:"但馬", test:a => /豊岡市|養父市|朝来市|香美町|新温泉町/.test(a) },
+    { region:"淡路", test:a => /淡路市|洲本市|南あわじ市/.test(a) }
+  ],
+  "京都府": [
+    { region:"京都市内", test:a => a.includes("京都市") },
+    { region:"山城", test:a => /宇治市|城陽市|八幡市|京田辺市|木津川市|長岡京市|向日市|大山崎町|久御山町|井手町|宇治田原町|笠置町|和束町|精華町|南山城村/.test(a) },
+    { region:"南丹", test:a => /亀岡市|南丹市|京丹波町/.test(a) },
+    { region:"丹後", test:a => /福知山市|舞鶴市|綾部市|宮津市|京丹後市|伊根町|与謝野町/.test(a) }
+  ],
+  "奈良県": [
+    { region:"奈良市内", test:a => a.includes("奈良市") },
+    { region:"北和", test:a => /生駒市|大和郡山市|生駒郡|山辺郡|天理市/.test(a) },
+    { region:"中和", test:a => /橿原市|大和高田市|桜井市|御所市|葛城市|香芝市|磯城郡|高市郡|北葛城郡/.test(a) },
+    { region:"南和", test:a => /五條市|宇陀市|吉野郡/.test(a) }
+  ],
+  "滋賀県": [
+    { region:"大津・南部", test:a => /大津市|草津市|栗東市|守山市|野洲市/.test(a) },
+    { region:"湖東", test:a => /彦根市|近江八幡市|東近江市|愛知郡|犬上郡|蒲生郡/.test(a) },
+    { region:"湖北", test:a => /長浜市|米原市/.test(a) },
+    { region:"甲賀・湖西", test:a => /甲賀市|湖南市|高島市/.test(a) }
+  ],
+  "和歌山県": [
+    { region:"和歌山市内", test:a => a.includes("和歌山市") },
+    { region:"紀北", test:a => /岩出市|紀の川市|橋本市|海南市|伊都郡|海草郡|紀美野町/.test(a) },
+    { region:"紀中", test:a => /有田市|御坊市|日高郡|有田郡/.test(a) },
+    { region:"紀南", test:a => /田辺市|新宮市|西牟婁郡|東牟婁郡/.test(a) }
+  ]
+};
+function regionOf(p){
+  const rules = REGION_RULES[p.pref] || [];
+  for(const r of rules){ if(r.test(p.addr)) return r.region; }
+  return "その他";
+}
+
+let activePref = "all";
+let activeRegion = "all";
+let parkingFilter = "all"; /* "all" | "free" | "paid" */
+let selectedId = DATA[0].id;
+
+function matchesFilters(p){
+  const prefOk = activePref === "all" || p.pref === activePref;
+  const regionOk = activePref === "all" || activeRegion === "all" || regionOf(p) === activeRegion;
+  const parkOk = parkingFilter === "all" || (parkingFilter === "free" ? p.parking.free : !p.parking.free);
+  return prefOk && regionOk && parkOk;
+}
+
+/* bounding boxes of each prefecture shape (projected coords), used to zoom the map
+   to a prefecture when it's selected in the filter chips */
+const FULL_VB = { x:0, y:0, w:538.7, h:680 };
+const ASPECT = FULL_VB.w / FULL_VB.h;
+const PREF_BBOX = {
+  "大阪府": { minX:212.8, maxX:354.5, minY:222.5, maxY:428.3 },
+  "兵庫県": { minX:30.0, maxX:294.1, minY:57.6, maxY:450.3 },
+  "京都府": { minX:160.8, maxX:422.0, minY:30.0, maxY:313.7 },
+  "奈良県": { minX:309.8, maxX:459.8, minY:293.7, maxY:537.5 },
+  "滋賀県": { minX:358.6, maxX:508.7, minY:49.9, maxY:291.2 },
+  "和歌山県": { minX:204.9, maxX:412.5, minY:398.9, maxY:650.0 }
+};
+
+function fitBBox(b, padding){
+  let x0 = b.minX - padding, x1 = b.maxX + padding;
+  let y0 = b.minY - padding, y1 = b.maxY + padding;
+  let w = x1 - x0, h = y1 - y0;
+  if(w / h > ASPECT){
+    const newH = w / ASPECT;
+    const dy = (newH - h) / 2;
+    y0 -= dy; y1 += dy; h = newH;
+  } else {
+    const newW = h * ASPECT;
+    const dx = (newW - w) / 2;
+    x0 -= dx; x1 += dx; w = newW;
+  }
+  return { x:x0, y:y0, w, h };
+}
+
+let currentVB = { ...FULL_VB };
+let drilledIn = false;
+
+function applyVB(){
+  mapSvg.setAttribute('viewBox', `${currentVB.x} ${currentVB.y} ${currentVB.w} ${currentVB.h}`);
+  document.getElementById('mapReset').classList.toggle('show', drilledIn);
+}
+
+function fitToFilter(){
+  currentVB = activePref === "all" ? { ...FULL_VB } : fitBBox(PREF_BBOX[activePref], 40);
+  drilledIn = false;
+  applyVB();
+}
+
+function zoomToBBox(b){
+  currentVB = fitBBox(b, 22);
+  drilledIn = true;
+  applyVB();
+}
+
+/* Greedy chain-clustering: groups pins whose on-screen gap would be smaller than
+   CLUSTER_FRACTION of the current view width, so crowded spots collapse into a single
+   bubble (with a count) instead of overlapping pins. The threshold shrinks automatically
+   as the map is zoomed in, so clusters split apart on their own. */
+const CLUSTER_FRACTION = 0.052;
+function clusterPins(pins){
+  const threshold = currentVB.w * CLUSTER_FRACTION;
+  const used = new Array(pins.length).fill(false);
+  const groups = [];
+  for(let i=0;i<pins.length;i++){
+    if(used[i]) continue;
+    const group = [pins[i]]; used[i] = true;
+    let grew = true;
+    while(grew){
+      grew = false;
+      for(let j=0;j<pins.length;j++){
+        if(used[j]) continue;
+        const near = group.some(g => Math.hypot(g.x-pins[j].x, g.y-pins[j].y) < threshold);
+        if(near){ group.push(pins[j]); used[j] = true; grew = true; }
+      }
+    }
+    groups.push(group);
+  }
+  return groups;
+}
+
+const mapSvg = document.getElementById('map');
+const geoLayer = document.getElementById('geoLayer');
+const pinLayer = document.getElementById('pinLayer');
+const listPanel = document.getElementById('listPanel');
+const previewEl = document.getElementById('preview');
+const sectionsEl = document.getElementById('sections');
+const filtersEl = document.getElementById('filters');
+const regionFiltersEl = document.getElementById('regionFilters');
+const parkingFiltersEl = document.getElementById('parkingFilters');
+
+function renderRegionChips(){
+  if(activePref === "all" || !REGION_RULES[activePref]){
+    regionFiltersEl.innerHTML = "";
+    return;
+  }
+  const regions = ["all", ...REGION_RULES[activePref].map(r => r.region)];
+  regionFiltersEl.innerHTML = regions.map(r =>
+    `<button class="chip" data-region="${r}" aria-pressed="${r===activeRegion}">${r==="all" ? "地域: すべて" : r}</button>`
+  ).join("");
+}
+
+function byId(id){ return DATA.find(p => p.id === id); }
+
+function renderGeo(){
+  const prefShapes = PREF_ORDER.map(pref => {
+    const dim = activePref !== "all" && pref !== activePref;
+    return `<path class="geo ${dim ? 'dim' : ''}" data-pref="${pref}" d="${GEO_PATHS[pref]}"/>`;
+  }).join("");
+  const lake = `<ellipse class="lake" cx="${LAKE_BIWA.cx}" cy="${LAKE_BIWA.cy}" rx="${LAKE_BIWA.rx}" ry="${LAKE_BIWA.ry}"/>
+    <text class="lake-label" x="${LAKE_BIWA.cx}" y="${LAKE_BIWA.cy}">琵琶湖</text>`;
+  const cities = CITIES.map(c => `
+    <circle class="city-dot" cx="${c.x}" cy="${c.y}" r="2.2"/>
+    <text class="city-label" x="${c.x + 6}" y="${c.y + 4}">${c.name}</text>`).join("");
+  geoLayer.innerHTML = prefShapes + lake + cities;
+}
+
+function renderMap(){
+  const shown = DATA.filter(matchesFilters);
+  const groups = clusterPins(shown);
+  pinLayer.innerHTML = groups.map(group => {
+    if(group.length === 1){
+      const p = group[0];
+      const active = p.id === selectedId;
+      return `
+      <g class="pin ${p.parking.free ? '' : 'paid'} ${active ? 'active' : ''}" data-id="${p.id}" tabindex="0" role="button" aria-label="${p.name}">
+        <circle class="base" cx="${p.x}" cy="${p.y}" r="${active ? 13 : 10}"/>
+        <text x="${p.x}" y="${p.y+1}">${p.id}</text>
+      </g>`;
+    }
+    const cx = group.reduce((s,p) => s+p.x, 0) / group.length;
+    const cy = group.reduce((s,p) => s+p.y, 0) / group.length;
+    const r = Math.min(10 + group.length * 1.6, 22);
+    const bbox = {
+      minX: Math.min(...group.map(p=>p.x)), maxX: Math.max(...group.map(p=>p.x)),
+      minY: Math.min(...group.map(p=>p.y)), maxY: Math.max(...group.map(p=>p.y))
+    };
+    return `
+    <g class="cluster" data-bbox='${JSON.stringify(bbox)}' tabindex="0" role="button" aria-label="${group.length}件の公園をまとめて表示">
+      <circle cx="${cx}" cy="${cy}" r="${r}"/>
+      <text x="${cx}" y="${cy+1}">${group.length}</text>
+    </g>`;
+  }).join("");
+}
+
+function renderList(){
+  listPanel.innerHTML = DATA.map(p => {
+    const dim = !matchesFilters(p);
+    return `
+    <button class="list-row ${p.parking.free ? '' : 'paid'} ${p.id===selectedId ? 'active' : ''} ${dim ? 'dim' : ''}" data-id="${p.id}">
+      <span class="n">${p.id}</span>
+      <span class="meta">
+        <div class="nm">${p.name}</div>
+        <div class="pf">${p.pref}・${regionOf(p)}・${p.area}</div>
+      </span>
+      ${p.rating ? `<span class="r">${p.rating}</span>` : ""}
+    </button>`;
+  }).join("");
+}
+
+function renderPreview(){
+  const p = byId(selectedId);
+  if(!p){ previewEl.innerHTML = ""; return; }
+  previewEl.innerHTML = `
+    <div class="icon-box"><svg viewBox="0 0 32 32">${ICONS[p.icon]}</svg></div>
+    <div class="pbody">
+      <div class="top">
+        <span class="nm">${p.id}. ${p.name}</span>
+        ${p.rating ? `<span class="rating">${p.rating}</span>` : ""}
+      </div>
+      <div class="addr">${p.addr}</div>
+      <div class="chips">
+        <span class="badge ${p.parking.free ? 'free' : 'paid'}">${p.parking.free ? '駐車場無料' : '駐車場有料'}</span>
+        <span class="badge neutral">${p.area}</span>
+      </div>
+    </div>
+    <a class="jump" href="#park-${p.id}" data-jump="${p.id}">詳細を見る ↓</a>`;
+}
+
+function cardHTML(p){
+  const badge = p.parking.free
+    ? `<span class="badge free">駐車場無料</span>`
+    : `<span class="badge paid">駐車場有料</span>`;
+  const entryBadge = p.entryFree === false
+    ? `<span class="badge paid">入園有料</span>`
+    : `<span class="badge neutral">入園無料</span>`;
+  return `
+  <article class="card" id="park-${p.id}">
+    <div class="banner">
+      <div class="num-badge">${p.id}</div>
+      <div class="icon-box"><svg viewBox="0 0 32 32">${ICONS[p.icon]}</svg></div>
+      <div class="banner-text">
+        <div class="name">${p.name}</div>
+        <div class="addr">${p.addr}</div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="badges">${badge}${entryBadge}</div>
+      <div class="stats">
+        <div class="stat"><div class="label">敷地面積</div><div class="value">${p.area}</div></div>
+        <div class="stat"><div class="label">駐車場</div><div class="value">${p.parking.text}</div></div>
+        <div class="stat"><div class="label">営業時間</div><div class="value">${p.hours}</div></div>
+        <div class="stat"><div class="label">定休日</div><div class="value">${p.closed}</div></div>
+      </div>
+      <div class="equip">${p.equip}</div>
+      <blockquote class="review">${p.rating ? `<span class="rating">${p.rating}</span> ` : ""}${p.review}</blockquote>
+      <footer><a href="${p.link}" target="_blank" rel="noopener">公式情報・写真を見る →</a></footer>
+    </div>
+  </article>`;
+}
+
+function renderSections(){
+  sectionsEl.innerHTML = PREF_ORDER
+    .filter(pref => activePref === "all" || pref === activePref)
+    .map(pref => {
+      const parks = DATA.filter(p => p.pref === pref && matchesFilters(p));
+      if(!parks.length) return "";
+      return `
+      <section class="pref">
+        <div class="pref-head">
+          <span class="pref-name">${pref}</span>
+          <span class="pref-count">${parks.length}件</span>
+        </div>
+        <div class="grid">${parks.map(cardHTML).join("")}</div>
+      </section>`;
+    }).join("");
+}
+
+function select(id, {jump=false} = {}){
+  selectedId = id;
+  renderMap();
+  renderList();
+  renderPreview();
+  if(jump){
+    const card = document.getElementById(`park-${id}`);
+    if(card){
+      card.scrollIntoView({behavior:'smooth', block:'center'});
+      card.classList.remove('flash');
+      requestAnimationFrame(() => card.classList.add('flash'));
+    }
+  }
+}
+
+function activatePinOrCluster(target){
+  const cluster = target.closest('.cluster');
+  if(cluster){
+    zoomToBBox(JSON.parse(cluster.dataset.bbox));
+    renderMap();
+    return;
+  }
+  const pin = target.closest('.pin');
+  if(pin){
+    select(Number(pin.dataset.id), {jump:true});
+  }
+}
+mapSvg.addEventListener('click', e => activatePinOrCluster(e.target));
+mapSvg.addEventListener('keydown', e => {
+  if(e.key !== 'Enter' && e.key !== ' ') return;
+  if(!e.target.closest('.pin, .cluster')) return;
+  e.preventDefault();
+  activatePinOrCluster(e.target);
+});
+document.getElementById('mapReset').addEventListener('click', () => {
+  fitToFilter();
+  renderMap();
+});
+listPanel.addEventListener('click', e => {
+  const row = e.target.closest('.list-row');
+  if(!row) return;
+  select(Number(row.dataset.id));
+});
+previewEl.addEventListener('click', e => {
+  const jump = e.target.closest('[data-jump]');
+  if(!jump) return;
+  e.preventDefault();
+  select(Number(jump.dataset.jump), {jump:true});
+});
+
+function refreshAll(){
+  if(!matchesFilters(byId(selectedId))){
+    const first = DATA.find(matchesFilters);
+    if(first) selectedId = first.id;
+  }
+  fitToFilter();
+  renderRegionChips();
+  renderGeo();
+  renderMap();
+  renderList();
+  renderPreview();
+  renderSections();
+}
+
+const prefs = ["all", ...PREF_ORDER];
+filtersEl.innerHTML = prefs.map((p,i) =>
+  `<button class="chip" data-pref="${p}" aria-pressed="${i===0}">${p==="all" ? "すべて" : p}</button>`
+).join("");
+filtersEl.addEventListener('click', e => {
+  const btn = e.target.closest('.chip');
+  if(!btn) return;
+  filtersEl.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed','false'));
+  btn.setAttribute('aria-pressed','true');
+  activePref = btn.dataset.pref;
+  activeRegion = "all";
+  refreshAll();
+});
+regionFiltersEl.addEventListener('click', e => {
+  const btn = e.target.closest('.chip');
+  if(!btn) return;
+  regionFiltersEl.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed','false'));
+  btn.setAttribute('aria-pressed','true');
+  activeRegion = btn.dataset.region;
+  refreshAll();
+});
+
+const PARKING_OPTIONS = [
+  { key:"all", label:"駐車場: すべて" },
+  { key:"free", label:"駐車場無料のみ" },
+  { key:"paid", label:"駐車場有料のみ" }
+];
+parkingFiltersEl.innerHTML = PARKING_OPTIONS.map((o,i) =>
+  `<button class="chip" data-parking="${o.key}" aria-pressed="${i===0}">${o.label}</button>`
+).join("");
+parkingFiltersEl.addEventListener('click', e => {
+  const btn = e.target.closest('.chip');
+  if(!btn) return;
+  parkingFiltersEl.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed','false'));
+  btn.setAttribute('aria-pressed','true');
+  parkingFilter = btn.dataset.parking;
+  refreshAll();
+});
+
+applyVB();
+renderGeo();
+renderMap();
+renderList();
+renderPreview();
+renderSections();
+</script>
+</body>
+</html>
